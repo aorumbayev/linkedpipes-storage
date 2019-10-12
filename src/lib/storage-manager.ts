@@ -161,7 +161,7 @@ class StorageFileManager {
     return response;
   }
 
-  static updateACL(accessControlConfig: AccessControlConfig) {
+  static async updateACL(accessControlConfig: AccessControlConfig) {
     const request: authClient.RequestInit = {
       method: 'PUT',
       headers: {
@@ -170,7 +170,7 @@ class StorageFileManager {
       body: StorageFileManager.createAccessControlList(accessControlConfig)
     };
 
-    return authClient.fetch(accessControlConfig.resource.path, request);
+    return await authClient.fetch(accessControlConfig.resource.path, request);
   }
 }
 

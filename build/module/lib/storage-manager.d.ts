@@ -40,6 +40,6 @@ declare class RDFNamespace {
 declare class StorageFileManager {
     private static createAccessControlStatement;
     private static createAccessControlList;
-    static updateACL(accessControlConfig: AccessControlConfig): any;
+    static updateACL(accessControlConfig: AccessControlConfig): Promise<any>;
 }
 export { SolidResourceType, SolidResource, AccessControlConfig, AccessControlStatementConfig, AccessControlNamespace, FOAFNamespace, RDFNamespace, StorageFileManager };
