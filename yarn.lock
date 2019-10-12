@@ -3881,10 +3881,9 @@ rdf-canonize@^1.0.2:
     node-forge "^0.8.1"
     semver "^5.6.0"
 
-rdflib@^1.0.4:
+"rdflib@https://github.com/aorumbayev/rdflib.js/tarball/master":
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/rdflib/-/rdflib-1.0.4.tgz#67837a35f938fdcfbb444c77da9eb8efae795e9c"
-  integrity sha512-rnK48WLbj0sIBQwgSazPEJNhgYyfnCLgizGWo+g2TArntvFOzmH0fiChyQIOtvAaFbr3r0uPsbqm4LaB5c+t5A==
+  resolved "https://github.com/aorumbayev/rdflib.js/tarball/master#3d589df9a4cec123eccf4b637ed0866795b66475"
   dependencies:
     "@babel/runtime" "^7.5.5"
     async "^3.1.x"
