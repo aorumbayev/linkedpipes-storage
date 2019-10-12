@@ -157,7 +157,7 @@ class StorageFileManager {
       'text/turtle',
       undefined
     );
-    const response = newStore.serialize('', 'text/turtle', '');
+    const response = newStore.serialize(accessListUrl, 'text/turtle', '');
     return response;
   }
 
