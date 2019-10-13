@@ -6,12 +6,18 @@ declare enum SolidResourceType {
 interface SolidResource {
     type: SolidResourceType;
     path: string;
+    body?: string;
+}
+interface SolidACLResource extends SolidResource {
     isPublic: boolean;
 }
-interface AccessControlConfig {
+interface ResourceConfig {
     webID: string;
-    controlModes: Array<$rdf.NamedNode>;
     resource: SolidResource;
+}
+interface AccessControlConfig extends ResourceConfig {
+    controlModes: Array<$rdf.NamedNode>;
+    resource: SolidACLResource;
 }
 interface AccessControlStatementConfig extends AccessControlConfig {
     ownerNode: $rdf.NamedNode;
@@ -41,5 +47,10 @@ declare class StorageFileManager {
     private static createAccessControlStatement;
     private static createAccessControlList;
     static updateACL(accessControlConfig: AccessControlConfig): Promise<any>;
+    private static createResource;
+    private static deleteResource;
+    private static updateResource;
+    static createOrUpdateResource(resourceConfig: ResourceConfig): Promise<any>;
+    static resourceExists(resourceURL: string): Promise<any>;
 }
 export { SolidResourceType, SolidResource, AccessControlConfig, AccessControlStatementConfig, AccessControlNamespace, FOAFNamespace, RDFNamespace, StorageFileManager };

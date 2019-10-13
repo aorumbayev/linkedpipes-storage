@@ -1,9 +1,8 @@
 // tslint:disable:no-ex
-import * as $rdf from 'rdflib';
 import auth from 'solid-auth-cli';
 import { StorageFileManager, SolidResourceType } from './storage-manager';
 
-const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
+// const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
 
 async function login() {
   var session = await auth.currentSession();
@@ -18,13 +17,11 @@ async function login() {
         console.log(response);
       });
 
-  StorageFileManager.updateACL({
+  StorageFileManager.createOrUpdateResource({
     webID: 'https://aorumbayev.lpapps.co:8443/profile/card#me',
-    controlModes: [ACL('Read'), ACL('Write')],
     resource: {
       type: SolidResourceType.Folder,
-      path: 'https://aorumbayev.lpapps.co:8443/linkedpipes43/',
-      isPublic: true
+      path: 'https://aorumbayev.lpapps.co:8443/linkedpipes111'
     }
   }).then(response => {
     console.log(response);

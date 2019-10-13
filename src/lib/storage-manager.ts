@@ -13,6 +13,10 @@ enum SolidResourceType {
 interface SolidResource {
   type: SolidResourceType;
   path: string;
+  body?: string;
+}
+
+interface SolidACLResource extends SolidResource {
   isPublic: boolean;
 }
 
@@ -23,6 +27,7 @@ interface ResourceConfig {
 
 interface AccessControlConfig extends ResourceConfig {
   controlModes: Array<$rdf.NamedNode>;
+  resource: SolidACLResource;
 }
 
 interface AccessControlStatementConfig extends AccessControlConfig {
@@ -165,20 +170,76 @@ class StorageFileManager {
   }
 
   static async updateACL(accessControlConfig: AccessControlConfig) {
-    const request: authClient.RequestInit = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'text/turtle'
-      },
-      body: StorageFileManager.createAccessControlList(accessControlConfig)
-    };
-
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
+    const aclRequestBody = StorageFileManager.createAccessControlList(
+      accessControlConfig
+    );
 
-    return await authClient.fetch(accessListUrl, request);
+    return await StorageFileManager.createResource({
+      webID: accessControlConfig.webID,
+      resource: {
+        ...accessControlConfig.resource,
+        path: accessListUrl,
+        body: aclRequestBody
+      }
+    });
   }
 
-  static async createOrUpdateResource(resourceConfig: ResourceConfig) {}
+  private static async createResource(resourceConfig: ResourceConfig) {
+    try {
+      const options = {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'text/turtle'
+        },
+        body: resourceConfig.resource.body
+      };
+      return await authClient.fetch(resourceConfig.resource.path, options);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  private static async deleteResource(resourceConfig: ResourceConfig) {
+    try {
+      return await authClient.fetch(resourceConfig.resource.path, {
+        method: 'DELETE'
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  private static async updateResource(resourceConfig: ResourceConfig) {
+    try {
+      await StorageFileManager.deleteResource(resourceConfig);
+      return await StorageFileManager.createResource(resourceConfig);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async createOrUpdateResource(resourceConfig: ResourceConfig) {
+    try {
+      const result = await StorageFileManager.resourceExists(
+        resourceConfig.resource.path
+      );
+
+      return result.status === 404
+        ? StorageFileManager.createResource(resourceConfig)
+        : StorageFileManager.updateResource(resourceConfig);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async resourceExists(resourceURL: string) {
+    return await authClient.fetch(resourceURL, {
+      headers: {
+        'Content-Type': 'text/turtle'
+      }
+    });
+  }
 }
 
 export {
