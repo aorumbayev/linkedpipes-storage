@@ -1,5 +1,5 @@
 import * as $rdf from 'rdflib';
-import authClient from 'solid-auth-client';
+import authClient from 'solid-auth-cli';
 
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
@@ -16,10 +16,13 @@ interface SolidResource {
   isPublic: boolean;
 }
 
-interface AccessControlConfig {
+interface ResourceConfig {
   webID: string;
-  controlModes: Array<$rdf.NamedNode>;
   resource: SolidResource;
+}
+
+interface AccessControlConfig extends ResourceConfig {
+  controlModes: Array<$rdf.NamedNode>;
 }
 
 interface AccessControlStatementConfig extends AccessControlConfig {
@@ -170,8 +173,12 @@ class StorageFileManager {
       body: StorageFileManager.createAccessControlList(accessControlConfig)
     };
 
-    return await authClient.fetch(accessControlConfig.resource.path, request);
+    const accessListUrl = `${accessControlConfig.resource.path}.acl`;
+
+    return await authClient.fetch(accessListUrl, request);
   }
+
+  static async createOrUpdateResource(resourceConfig: ResourceConfig) {}
 }
 
 export {

@@ -53,6 +53,7 @@
   "dependencies": {
     "rdflib": "https://github.com/aorumbayev/rdflib.js.git",
     "sha.js": "^2.4.11",
+    "solid-auth-cli": "^1.0.8",
     "solid-auth-client": "^2.3.1"
   },
   "devDependencies": {
