@@ -54,13 +54,14 @@
     "rdflib": "https://github.com/aorumbayev/rdflib.js.git",
     "sha.js": "^2.4.11",
     "solid-auth-cli": "^1.0.8",
-    "solid-auth-client": "^2.3.1"
+    "solid-auth-client": "^2.3.1",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@bitjson/typedoc": "^0.15.0-0",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
-    "ava": "2.2.0",
+    "ava": "^2.4.0",
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
     "gh-pages": "^2.0.1",
@@ -70,7 +71,7 @@
     "prettier": "^1.18.2",
     "standard-version": "^6.0.1",
     "trash-cli": "^3.0.0",
-    "tslint": "^5.18.0",
+    "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
     "typescript": "^3.5.3"

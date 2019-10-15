@@ -4,26 +4,26 @@ declare enum SolidResourceType {
     File = 1
 }
 interface SolidResource {
-    type: SolidResourceType;
-    path: string;
-    body?: string;
+    readonly type: SolidResourceType;
+    readonly path: string;
+    readonly body?: string;
 }
 interface SolidACLResource extends SolidResource {
-    isPublic: boolean;
+    readonly isPublic: boolean;
 }
 interface ResourceConfig {
-    webID: string;
-    resource: SolidResource;
+    readonly webID: string;
+    readonly resource: SolidResource;
 }
 interface AccessControlConfig extends ResourceConfig {
-    controlModes: Array<$rdf.NamedNode>;
-    resource: SolidACLResource;
+    readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
+    readonly resource: SolidACLResource;
 }
 interface AccessControlStatementConfig extends AccessControlConfig {
-    ownerNode: $rdf.NamedNode;
-    userNode?: $rdf.NamedNode;
-    resourceNode: $rdf.NamedNode;
-    aclResourceNode: $rdf.NamedNode;
+    readonly ownerNode: $rdf.NamedNode;
+    readonly userNode?: $rdf.NamedNode;
+    readonly resourceNode: $rdf.NamedNode;
+    readonly aclResourceNode: $rdf.NamedNode;
 }
 declare class AccessControlNamespace {
     static readonly Control: any;
@@ -44,13 +44,13 @@ declare class RDFNamespace {
     static readonly type: any;
 }
 declare class StorageFileManager {
-    private static createAccessControlStatement;
-    private static createAccessControlList;
     static updateACL(accessControlConfig: AccessControlConfig): Promise<any>;
-    private static createResource;
-    private static deleteResource;
-    private static updateResource;
+    static createResource(resourceConfig: ResourceConfig): Promise<any>;
+    static deleteResource(resourceConfig: ResourceConfig): Promise<any>;
+    static updateResource(resourceConfig: ResourceConfig): Promise<any>;
     static createOrUpdateResource(resourceConfig: ResourceConfig): Promise<any>;
     static resourceExists(resourceURL: string): Promise<any>;
+    private static createAccessControlStatement;
+    private static createAccessControlList;
 }
-export { SolidResourceType, SolidResource, AccessControlConfig, AccessControlStatementConfig, AccessControlNamespace, FOAFNamespace, RDFNamespace, StorageFileManager };
+export { SolidResourceType, SolidResource, AccessControlConfig, ResourceConfig, AccessControlStatementConfig, AccessControlNamespace, FOAFNamespace, RDFNamespace, StorageFileManager };

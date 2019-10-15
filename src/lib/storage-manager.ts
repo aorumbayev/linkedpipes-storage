@@ -11,58 +11,129 @@ enum SolidResourceType {
 }
 
 interface SolidResource {
-  type: SolidResourceType;
-  path: string;
-  body?: string;
+  readonly type: SolidResourceType;
+  readonly path: string;
+  readonly body?: string;
 }
 
 interface SolidACLResource extends SolidResource {
-  isPublic: boolean;
+  readonly isPublic: boolean;
 }
 
 interface ResourceConfig {
-  webID: string;
-  resource: SolidResource;
+  readonly webID: string;
+  readonly resource: SolidResource;
 }
 
 interface AccessControlConfig extends ResourceConfig {
-  controlModes: Array<$rdf.NamedNode>;
-  resource: SolidACLResource;
+  readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
+  readonly resource: SolidACLResource;
 }
 
 interface AccessControlStatementConfig extends AccessControlConfig {
-  ownerNode: $rdf.NamedNode;
-  userNode?: $rdf.NamedNode;
-  resourceNode: $rdf.NamedNode;
-  aclResourceNode: $rdf.NamedNode;
+  readonly ownerNode: $rdf.NamedNode;
+  readonly userNode?: $rdf.NamedNode;
+  readonly resourceNode: $rdf.NamedNode;
+  readonly aclResourceNode: $rdf.NamedNode;
 }
 
 class AccessControlNamespace {
-  static readonly Control = ACL('Control');
-  static readonly Read = ACL('Read');
-  static readonly Write = ACL('Write');
-  static readonly Append = ACL('Append');
-  static readonly Authorization = ACL('Authorization');
-  static readonly accessTo = ACL('accessTo');
-  static readonly agent = ACL('agent');
-  static readonly agentClass = ACL('agentClass');
-  static readonly mode = ACL('mode');
-  static readonly defaultForNew = ACL('defaultForNew');
+  public static readonly Control = ACL('Control');
+  public static readonly Read = ACL('Read');
+  public static readonly Write = ACL('Write');
+  public static readonly Append = ACL('Append');
+  public static readonly Authorization = ACL('Authorization');
+  public static readonly accessTo = ACL('accessTo');
+  public static readonly agent = ACL('agent');
+  public static readonly agentClass = ACL('agentClass');
+  public static readonly mode = ACL('mode');
+  public static readonly defaultForNew = ACL('defaultForNew');
 }
 
 class FOAFNamespace {
-  static readonly Agent = FOAF('Agent');
+  public static readonly Agent = FOAF('Agent');
 }
 
 class RDFNamespace {
-  static readonly type = RDF('type');
+  public static readonly type = RDF('type');
 }
 
 class StorageFileManager {
+  static async updateACL(accessControlConfig: AccessControlConfig) {
+    const accessListUrl = `${accessControlConfig.resource.path}.acl`;
+    const aclRequestBody = StorageFileManager.createAccessControlList(
+      accessControlConfig
+    );
+
+    return StorageFileManager.createResource({
+      webID: accessControlConfig.webID,
+      resource: {
+        ...accessControlConfig.resource,
+        path: accessListUrl,
+        body: aclRequestBody
+      }
+    });
+  }
+
+  public static async createResource(resourceConfig: ResourceConfig) {
+    try {
+      const options = {
+        body: resourceConfig.resource.body,
+        headers: {
+          'Content-Type': 'text/turtle'
+        },
+        method: 'PUT'
+      };
+      return await authClient.fetch(resourceConfig.resource.path, options);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async deleteResource(resourceConfig: ResourceConfig) {
+    try {
+      return await authClient.fetch(resourceConfig.resource.path, {
+        method: 'DELETE'
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async updateResource(resourceConfig: ResourceConfig) {
+    try {
+      await StorageFileManager.deleteResource(resourceConfig);
+      return await StorageFileManager.createResource(resourceConfig);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async createOrUpdateResource(resourceConfig: ResourceConfig) {
+    try {
+      const result = await StorageFileManager.resourceExists(
+        resourceConfig.resource.path
+      );
+
+      return result.status === 404
+        ? StorageFileManager.createResource(resourceConfig)
+        : StorageFileManager.updateResource(resourceConfig);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static async resourceExists(resourceURL: string) {
+    return authClient.fetch(resourceURL, {
+      headers: {
+        'Content-Type': 'text/turtle'
+      }
+    });
+  }
   private static createAccessControlStatement(
     statementConfig: AccessControlStatementConfig
   ) {
-    const acl = [
+    const acl: any[] = [
       $rdf.st(
         statementConfig.ownerNode,
         RDFNamespace.type,
@@ -140,7 +211,9 @@ class StorageFileManager {
       resourceNode: resource,
       aclResourceNode: aclResourcePath
     };
-    let acl = this.createAccessControlStatement(ownerStatementConfig);
+    let acl = StorageFileManager.createAccessControlStatement(
+      ownerStatementConfig
+    );
     if (accessControlConfig.resource.isPublic === true) {
       const publicOwnerNode = $rdf.sym(`${accessListUrl}#public`);
       const publicStatementConfig: AccessControlStatementConfig = {
@@ -168,84 +241,13 @@ class StorageFileManager {
     const response = newStore.serialize(accessListUrl, 'text/turtle', '');
     return response;
   }
-
-  static async updateACL(accessControlConfig: AccessControlConfig) {
-    const accessListUrl = `${accessControlConfig.resource.path}.acl`;
-    const aclRequestBody = StorageFileManager.createAccessControlList(
-      accessControlConfig
-    );
-
-    return await StorageFileManager.createResource({
-      webID: accessControlConfig.webID,
-      resource: {
-        ...accessControlConfig.resource,
-        path: accessListUrl,
-        body: aclRequestBody
-      }
-    });
-  }
-
-  private static async createResource(resourceConfig: ResourceConfig) {
-    try {
-      const options = {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'text/turtle'
-        },
-        body: resourceConfig.resource.body
-      };
-      return await authClient.fetch(resourceConfig.resource.path, options);
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  private static async deleteResource(resourceConfig: ResourceConfig) {
-    try {
-      return await authClient.fetch(resourceConfig.resource.path, {
-        method: 'DELETE'
-      });
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  private static async updateResource(resourceConfig: ResourceConfig) {
-    try {
-      await StorageFileManager.deleteResource(resourceConfig);
-      return await StorageFileManager.createResource(resourceConfig);
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  static async createOrUpdateResource(resourceConfig: ResourceConfig) {
-    try {
-      const result = await StorageFileManager.resourceExists(
-        resourceConfig.resource.path
-      );
-
-      return result.status === 404
-        ? StorageFileManager.createResource(resourceConfig)
-        : StorageFileManager.updateResource(resourceConfig);
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  static async resourceExists(resourceURL: string) {
-    return await authClient.fetch(resourceURL, {
-      headers: {
-        'Content-Type': 'text/turtle'
-      }
-    });
-  }
 }
 
 export {
   SolidResourceType,
   SolidResource,
   AccessControlConfig,
+  ResourceConfig,
   AccessControlStatementConfig,
   AccessControlNamespace,
   FOAFNamespace,
