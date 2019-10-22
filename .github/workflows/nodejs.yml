@@ -11,10 +11,12 @@ jobs:
         node-version: [10.x, 12.x]
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: sergioramos/yarn-actions/install@master
+      - uses: actions/checkout@master
+      - name: Install
+        uses: CultureHQ/actions-yarn@master
         with:
-          frozen-lockfile: true
-      - uses: sergioramos/yarn-actions/test@master
-        env:
-          CI: true
+          args: install
+      - name: Test
+        uses: CultureHQ/actions-yarn@master
+        with:
+          args: test
