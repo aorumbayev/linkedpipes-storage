@@ -14,4 +14,4 @@ install:
 script:
   - yarn test
 after_success:
-  - codecov
+  - yarn cov:send
