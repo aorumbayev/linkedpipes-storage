@@ -13,3 +13,5 @@ install:
   - until yarn install --frozen-lockfile ; do echo 'Retrying yarn install' ; done
 script:
   - yarn test
+after_success:
+  - codecov
