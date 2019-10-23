@@ -59,7 +59,7 @@ class RDFNamespace {
 }
 
 class StorageFileManager {
-  static async updateACL(accessControlConfig: AccessControlConfig) {
+  public static async updateACL(accessControlConfig: AccessControlConfig) {
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
     const aclRequestBody = StorageFileManager.createAccessControlList(
       accessControlConfig
@@ -90,7 +90,7 @@ class StorageFileManager {
     }
   }
 
-  static async deleteResource(resourceConfig: ResourceConfig) {
+  public static async deleteResource(resourceConfig: ResourceConfig) {
     try {
       return await authClient.fetch(resourceConfig.resource.path, {
         method: 'DELETE'
@@ -100,7 +100,7 @@ class StorageFileManager {
     }
   }
 
-  static async updateResource(resourceConfig: ResourceConfig) {
+  public static async updateResource(resourceConfig: ResourceConfig) {
     try {
       await StorageFileManager.deleteResource(resourceConfig);
       return await StorageFileManager.createResource(resourceConfig);
@@ -109,7 +109,7 @@ class StorageFileManager {
     }
   }
 
-  static async createOrUpdateResource(resourceConfig: ResourceConfig) {
+  public static async createOrUpdateResource(resourceConfig: ResourceConfig) {
     try {
       const result = await StorageFileManager.resourceExists(
         resourceConfig.resource.path
@@ -123,7 +123,7 @@ class StorageFileManager {
     }
   }
 
-  static async resourceExists(resourceURL: string) {
+  public static async resourceExists(resourceURL: string) {
     return authClient.fetch(resourceURL, {
       headers: {
         'Content-Type': 'text/turtle'

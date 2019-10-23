@@ -8,7 +8,24 @@ import {
 } from './storage-manager';
 
 let session;
+
 const webID = 'https://aorumbayev.lpapps.co:8443/profile/card#me';
+
+const fileConfigurationResource: ResourceConfig = {
+  resource: {
+    path: `https://tester1.inrupt.net/${uuid.v4()}`,
+    type: SolidResourceType.Folder
+  },
+  webID
+};
+
+const folderConfigurationResource: ResourceConfig = {
+  resource: {
+    path: `https://tester1.inrupt.net/${uuid.v4()}`,
+    type: SolidResourceType.Folder
+  },
+  webID
+};
 
 test.before(async () => {
   session = await auth.currentSession();
@@ -21,18 +38,30 @@ test.before(async () => {
   }
 });
 
-test('createResource', async t => {
-  const resourcePath = `https://tester1.inrupt.net/${uuid.v4()}`;
-  const configurationResource: ResourceConfig = {
-    resource: {
-      path: resourcePath,
-      type: SolidResourceType.Folder
-    },
-    webID
-  };
-  return StorageFileManager.createResource(configurationResource).then(
-    result => {
-      t.is(result.status, 201);
-    }
+test.serial('createFolderResource', async t => {
+  const result = await StorageFileManager.createResource(
+    folderConfigurationResource
   );
+  t.is(result.status, 201);
+});
+
+test.serial('deleteFolderResource', async t => {
+  const result = await StorageFileManager.deleteResource(
+    folderConfigurationResource
+  );
+  t.is(result.status, 200);
+});
+
+test.serial('createFileResource', async t => {
+  const result = await StorageFileManager.createResource(
+    fileConfigurationResource
+  );
+  t.is(result.status, 201);
+});
+
+test.serial('deleteFileResource', async t => {
+  const result = await StorageFileManager.deleteResource(
+    fileConfigurationResource
+  );
+  t.is(result.status, 200);
 });
