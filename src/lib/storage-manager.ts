@@ -59,7 +59,9 @@ class RDFNamespace {
 }
 
 class StorageFileManager {
-  public static async updateACL(accessControlConfig: AccessControlConfig) {
+  public static async updateACL(
+    accessControlConfig: AccessControlConfig
+  ): Promise<any> {
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
     const aclRequestBody = StorageFileManager.createAccessControlList(
       accessControlConfig
@@ -75,7 +77,9 @@ class StorageFileManager {
     });
   }
 
-  public static async createResource(resourceConfig: ResourceConfig) {
+  public static async createResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       const options = {
         body: resourceConfig.resource.body,
@@ -90,7 +94,9 @@ class StorageFileManager {
     }
   }
 
-  public static async deleteResource(resourceConfig: ResourceConfig) {
+  public static async deleteResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       return await authClient.fetch(resourceConfig.resource.path, {
         method: 'DELETE'
@@ -100,7 +106,9 @@ class StorageFileManager {
     }
   }
 
-  public static async updateResource(resourceConfig: ResourceConfig) {
+  public static async updateResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       await StorageFileManager.deleteResource(resourceConfig);
       return await StorageFileManager.createResource(resourceConfig);
@@ -109,7 +117,9 @@ class StorageFileManager {
     }
   }
 
-  public static async createOrUpdateResource(resourceConfig: ResourceConfig) {
+  public static async createOrUpdateResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       const result = await StorageFileManager.resourceExists(
         resourceConfig.resource.path
@@ -123,16 +133,17 @@ class StorageFileManager {
     }
   }
 
-  public static async resourceExists(resourceURL: string) {
+  public static async resourceExists(resourceURL: string): Promise<any> {
     return authClient.fetch(resourceURL, {
       headers: {
         'Content-Type': 'text/turtle'
       }
     });
   }
+
   private static createAccessControlStatement(
     statementConfig: AccessControlStatementConfig
-  ) {
+  ): any[] {
     const acl: any[] = [
       $rdf.st(
         statementConfig.ownerNode,
@@ -191,7 +202,7 @@ class StorageFileManager {
 
   private static createAccessControlList(
     accessControlConfig: AccessControlConfig
-  ) {
+  ): string {
     const resource = $rdf.sym(accessControlConfig.resource.path);
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
     const aclResourcePath = $rdf.sym(accessListUrl);
@@ -223,7 +234,7 @@ class StorageFileManager {
         aclResourceNode: aclResourcePath
       };
       acl = acl.concat(
-        this.createAccessControlStatement(publicStatementConfig)
+        StorageFileManager.createAccessControlStatement(publicStatementConfig)
       );
     }
 
