@@ -9,14 +9,17 @@ import {
 
 let session;
 
-const webID = 'https://aorumbayev.lpapps.co:8443/profile/card#me';
+const SOLID_PROVIDER_URL = process.env.SOLID_PROVIDER_URL;
+const SOLID_PASSWORD = process.env.SOLID_PASSWORD;
+const SOLID_USERNAME = process.env.SOLID_USERNAME;
+const SOLID_WEBID = process.env.SOLID_WEBID;
 
 const fileConfigurationResource: ResourceConfig = {
   resource: {
     path: `https://tester1.inrupt.net/${uuid.v4()}`,
     type: SolidResourceType.Folder
   },
-  webID
+  webID: SOLID_WEBID
 };
 
 const folderConfigurationResource: ResourceConfig = {
@@ -24,16 +27,16 @@ const folderConfigurationResource: ResourceConfig = {
     path: `https://tester1.inrupt.net/${uuid.v4()}`,
     type: SolidResourceType.Folder
   },
-  webID
+  webID: SOLID_WEBID
 };
 
 test.before(async () => {
   session = await auth.currentSession();
   if (!session) {
     session = await auth.login({
-      idp: 'https://inrupt.net',
-      password: 'Looper248!',
-      username: 'tester1'
+      idp: SOLID_PROVIDER_URL,
+      password: SOLID_PASSWORD,
+      username: SOLID_USERNAME
     });
   }
 });
