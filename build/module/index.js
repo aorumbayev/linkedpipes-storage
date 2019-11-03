@@ -1,2 +1,4 @@
+import * as SolidAuthClient from './lib/auth-manager';
 export * from './lib/storage-manager';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FBYyx1QkFBdUIsQ0FBQyJ9
+export { SolidAuthClient };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxLQUFLLGVBQWUsTUFBTSxvQkFBb0IsQ0FBQztBQUV0RCxjQUFjLHVCQUF1QixDQUFDO0FBQ3RDLE9BQU8sRUFBRSxlQUFlLEVBQUUsQ0FBQyJ9
