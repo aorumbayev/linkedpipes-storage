@@ -18,9 +18,19 @@ const SOLID_WEBID = process.env.SOLID_WEBID;
 const fileConfigurationResource: ResourceConfig = {
   resource: {
     path: `https://tester1.inrupt.net/${uuid.v4()}`,
-    type: SolidResourceType.Folder
+    type: SolidResourceType.Folder,
+    contentType: 'text/plain',
+    body: 'This is a test text file'
   },
   webID: SOLID_WEBID
+};
+
+const fileConfigurationResourceRenamed: ResourceConfig = {
+  resource: {
+    path: fileConfigurationResource.resource.path + '_renamed',
+    type: fileConfigurationResource.resource.type
+  },
+  webID: fileConfigurationResource.webID
 };
 
 const folderConfigurationResource: ResourceConfig = {
@@ -29,6 +39,14 @@ const folderConfigurationResource: ResourceConfig = {
     type: SolidResourceType.Folder
   },
   webID: SOLID_WEBID
+};
+
+const folderConfigurationResourceRenamed: ResourceConfig = {
+  resource: {
+    path: folderConfigurationResource.resource.path + '_renamed',
+    type: folderConfigurationResource.resource.type
+  },
+  webID: folderConfigurationResource.webID
 };
 
 async function createResource(t: any, input: any, expected: any): Promise<any> {
@@ -76,6 +94,29 @@ test.serial(
   200
 );
 
+test.serial('renameFolderResource', async t => {
+  const response = await StorageFileManager.renameResource(
+    folderConfigurationResource,
+    folderConfigurationResourceRenamed
+  );
+  t.is(response.status, 200);
+});
+
+test.serial('renameSameFolderResource', async t => {
+  const response = await StorageFileManager.renameResource(
+    folderConfigurationResourceRenamed,
+    folderConfigurationResourceRenamed
+  );
+  t.is(response.status, 200);
+});
+
+test.serial(
+  'folderResourceDoesNotExists',
+  resourceExists,
+  folderConfigurationResource.resource.path,
+  404
+);
+
 test.serial(
   'folderResourceUpdateACL',
   updateACL,
@@ -83,7 +124,7 @@ test.serial(
     webID: SOLID_WEBID,
     controlModes: [AccessControlNamespace.Read, AccessControlNamespace.Write],
     resource: {
-      ...folderConfigurationResource.resource,
+      ...folderConfigurationResourceRenamed.resource,
       isPublic: true
     }
   },
@@ -93,7 +134,7 @@ test.serial(
 test.serial(
   'deleteFolderResource',
   deleteResource,
-  folderConfigurationResource,
+  folderConfigurationResourceRenamed,
   200
 );
 
@@ -118,6 +159,46 @@ test.serial(
   200
 );
 
+test.serial('renameFileResource', async t => {
+  const response = await StorageFileManager.renameResource(
+    fileConfigurationResource,
+    fileConfigurationResourceRenamed
+  );
+  t.is(response.status, 200);
+});
+
+test.serial('renameSameFileResource', async t => {
+  const response = await StorageFileManager.renameResource(
+    fileConfigurationResourceRenamed,
+    fileConfigurationResourceRenamed
+  );
+  t.is(response.status, 200);
+});
+
+test.serial('updateRenamedFileResource', async t => {
+  const updatedText = 'This is a test text file that was changed';
+  await StorageFileManager.updateResource({
+    resource: {
+      path: fileConfigurationResourceRenamed.resource.path,
+      type: SolidResourceType.Folder,
+      contentType: 'text/plain',
+      body: updatedText
+    },
+    webID: SOLID_WEBID
+  });
+  const updatedFileContent = await StorageFileManager.getResource(
+    fileConfigurationResourceRenamed.resource.path
+  );
+  t.is(updatedFileContent, updatedText);
+});
+
+test.serial(
+  'fileResourceDoesNotExists',
+  resourceExists,
+  fileConfigurationResource.resource.path,
+  404
+);
+
 test.serial(
   'fileResourceUpdateACL',
   updateACL,
@@ -125,7 +206,7 @@ test.serial(
     webID: SOLID_WEBID,
     controlModes: [AccessControlNamespace.Read, AccessControlNamespace.Write],
     resource: {
-      ...fileConfigurationResource.resource,
+      ...fileConfigurationResourceRenamed.resource,
       isPublic: true
     }
   },
@@ -135,13 +216,13 @@ test.serial(
 test.serial(
   'deleteFileResource',
   deleteResource,
-  fileConfigurationResource,
+  fileConfigurationResourceRenamed,
   200
 );
 
 test.serial(
   'fileResourceDoesNotExist',
   resourceExists,
-  fileConfigurationResource.resource.path,
+  fileConfigurationResourceRenamed.resource.path,
   404
 );
