@@ -1,2 +1,2 @@
-import authClient from 'solid-auth-client';
+declare const authClient: any;
 export default authClient;

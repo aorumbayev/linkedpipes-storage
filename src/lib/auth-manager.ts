@@ -1,2 +1,2 @@
-import authClient from 'solid-auth-client';
+const authClient = require('solid-auth-client');
 export default authClient;

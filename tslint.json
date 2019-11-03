@@ -18,6 +18,7 @@
     "no-this": true,
     "no-class": false,
     "no-mixed-interface": true,
+    "no-var-requires": false,
     "object-literal-sort-keys": false,
     "no-expression-statement": [
       false,
