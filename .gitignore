@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not these files...
+!globals.html
+!index.html
+!assets/*
+!enums/*
+!interfaces/*
+# etc...
