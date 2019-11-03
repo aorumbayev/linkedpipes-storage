@@ -6,6 +6,7 @@ declare enum SolidResourceType {
 interface SolidResource {
     readonly type: SolidResourceType;
     readonly path: string;
+    readonly contentType?: string;
     readonly body?: string;
 }
 interface SolidACLResource extends SolidResource {
@@ -47,6 +48,9 @@ declare class StorageFileManager {
     static updateACL(accessControlConfig: AccessControlConfig): Promise<any>;
     static createResource(resourceConfig: ResourceConfig): Promise<any>;
     static deleteResource(resourceConfig: ResourceConfig): Promise<any>;
+    static getResource(path: string): Promise<any>;
+    static copyResource(originPath: string, destinationPath: string): Promise<any>;
+    static renameResource(oldResourceConfig: ResourceConfig, newResourceConfig: ResourceConfig): Promise<any>;
     static updateResource(resourceConfig: ResourceConfig): Promise<any>;
     static createOrUpdateResource(resourceConfig: ResourceConfig): Promise<any>;
     static resourceExists(resourceURL: string): Promise<any>;

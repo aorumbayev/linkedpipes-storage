@@ -13,6 +13,7 @@ enum SolidResourceType {
 interface SolidResource {
   readonly type: SolidResourceType;
   readonly path: string;
+  readonly contentType?: string;
   readonly body?: string;
 }
 
@@ -59,7 +60,9 @@ class RDFNamespace {
 }
 
 class StorageFileManager {
-  static async updateACL(accessControlConfig: AccessControlConfig) {
+  public static async updateACL(
+    accessControlConfig: AccessControlConfig
+  ): Promise<any> {
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
     const aclRequestBody = StorageFileManager.createAccessControlList(
       accessControlConfig
@@ -75,12 +78,14 @@ class StorageFileManager {
     });
   }
 
-  public static async createResource(resourceConfig: ResourceConfig) {
+  public static async createResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       const options = {
         body: resourceConfig.resource.body,
         headers: {
-          'Content-Type': 'text/turtle'
+          'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
         },
         method: 'PUT'
       };
@@ -90,7 +95,9 @@ class StorageFileManager {
     }
   }
 
-  static async deleteResource(resourceConfig: ResourceConfig) {
+  public static async deleteResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       return await authClient.fetch(resourceConfig.resource.path, {
         method: 'DELETE'
@@ -100,16 +107,78 @@ class StorageFileManager {
     }
   }
 
-  static async updateResource(resourceConfig: ResourceConfig) {
+  public static async getResource(path: string): Promise<any> {
     try {
-      await StorageFileManager.deleteResource(resourceConfig);
-      return await StorageFileManager.createResource(resourceConfig);
+      const response = await authClient.fetch(path, {
+        method: 'GET'
+      });
+      return await response.text();
     } catch (e) {
       throw e;
     }
   }
 
-  static async createOrUpdateResource(resourceConfig: ResourceConfig) {
+  public static async copyResource(
+    originPath: string,
+    destinationPath: string
+  ): Promise<any> {
+    try {
+      const response = await authClient.fetch(originPath, {
+        method: 'GET'
+      });
+
+      const content = await response.text();
+
+      return await authClient.fetch(destinationPath, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': response.headers.contentType
+        },
+        body: content
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async renameResource(
+    oldResourceConfig: ResourceConfig,
+    newResourceConfig: ResourceConfig
+  ): Promise<any> {
+    try {
+      await StorageFileManager.copyResource(
+        oldResourceConfig.resource.path,
+        newResourceConfig.resource.path
+      );
+      if (oldResourceConfig.resource.path !== newResourceConfig.resource.path) {
+        return await StorageFileManager.deleteResource(oldResourceConfig);
+      } else {
+        return Promise.resolve({ status: 200 });
+      }
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async updateResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
+    try {
+      return await authClient.fetch(resourceConfig.resource.path, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
+        },
+        body: resourceConfig.resource.body
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async createOrUpdateResource(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
     try {
       const result = await StorageFileManager.resourceExists(
         resourceConfig.resource.path
@@ -123,16 +192,17 @@ class StorageFileManager {
     }
   }
 
-  static async resourceExists(resourceURL: string) {
+  public static async resourceExists(resourceURL: string): Promise<any> {
     return authClient.fetch(resourceURL, {
       headers: {
         'Content-Type': 'text/turtle'
       }
     });
   }
+
   private static createAccessControlStatement(
     statementConfig: AccessControlStatementConfig
-  ) {
+  ): any[] {
     const acl: any[] = [
       $rdf.st(
         statementConfig.ownerNode,
@@ -191,7 +261,7 @@ class StorageFileManager {
 
   private static createAccessControlList(
     accessControlConfig: AccessControlConfig
-  ) {
+  ): string {
     const resource = $rdf.sym(accessControlConfig.resource.path);
     const accessListUrl = `${accessControlConfig.resource.path}.acl`;
     const aclResourcePath = $rdf.sym(accessListUrl);
@@ -223,7 +293,7 @@ class StorageFileManager {
         aclResourceNode: aclResourcePath
       };
       acl = acl.concat(
-        this.createAccessControlStatement(publicStatementConfig)
+        StorageFileManager.createAccessControlStatement(publicStatementConfig)
       );
     }
 
