@@ -1,5 +1,8 @@
 import * as $rdf from 'rdflib';
-import authClient from 'solid-auth-cli';
+import testClient from 'solid-auth-cli';
+import devClient from 'solid-auth-client';
+import { ENVIRONMENT } from './constants';
+const authClient = ENVIRONMENT === 'TEST' ? testClient : devClient;
 
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
