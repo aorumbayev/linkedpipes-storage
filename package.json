@@ -51,6 +51,8 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "ldflex": "^2.6.1",
+    "n3": "^1.3.0",
     "rdflib": "https://github.com/aorumbayev/rdflib.js.git",
     "sha.js": "^2.4.11",
     "solid-auth-client": "2.4.0",

@@ -8,6 +8,7 @@ import {
   SOLID_WEBID
 } from './constants';
 import {
+  AccessControlConfig,
   AccessControlNamespace,
   ResourceConfig,
   SolidResourceType,
@@ -16,39 +17,43 @@ import {
 
 let session;
 
-const fileConfigurationResource: ResourceConfig = {
-  resource: {
-    path: `https://tester1.inrupt.net/${uuid.v4()}`,
-    type: SolidResourceType.Folder,
+const fileConfigurationResource: ResourceConfig = new ResourceConfig(
+  {
+    path: `https://tester2.lpapps.co:8443`,
+    title: `${uuid.v4()}.txt`,
+    type: SolidResourceType.File,
     contentType: 'text/plain',
     body: 'This is a test text file'
   },
-  webID: SOLID_WEBID
-};
+  SOLID_WEBID
+);
 
-const fileConfigurationResourceRenamed: ResourceConfig = {
-  resource: {
-    path: fileConfigurationResource.resource.path + '_renamed',
+const fileConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
+  {
+    path: fileConfigurationResource.resource.path,
+    title: `${uuid.v4()}_renamed.txt`,
     type: fileConfigurationResource.resource.type
   },
-  webID: fileConfigurationResource.webID
-};
+  fileConfigurationResource.webID
+);
 
-const folderConfigurationResource: ResourceConfig = {
-  resource: {
-    path: `https://tester1.inrupt.net/${uuid.v4()}`,
+const folderConfigurationResource: ResourceConfig = new ResourceConfig(
+  {
+    path: `https://tester2.lpapps.co:8443`,
+    title: uuid.v4(),
     type: SolidResourceType.Folder
   },
-  webID: SOLID_WEBID
-};
+  SOLID_WEBID
+);
 
-const folderConfigurationResourceRenamed: ResourceConfig = {
-  resource: {
-    path: folderConfigurationResource.resource.path + '_renamed',
+const folderConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
+  {
+    path: folderConfigurationResource.resource.path,
+    title: uuid.v4() + '_renamed',
     type: folderConfigurationResource.resource.type
   },
-  webID: folderConfigurationResource.webID
-};
+  folderConfigurationResource.webID
+);
 
 async function createResource(t: any, input: any, expected: any): Promise<any> {
   const result = await StorageFileManager.createResource(input);
@@ -67,6 +72,7 @@ async function resourceExists(t: any, input: any, expected: any): Promise<any> {
 
 async function updateACL(t: any, input: any, expected: any): Promise<any> {
   const result = await StorageFileManager.updateACL(input);
+
   t.is(result.status, expected);
 }
 
@@ -91,7 +97,7 @@ test.serial(
 test.serial(
   'folderResourceExists',
   resourceExists,
-  folderConfigurationResource.resource.path,
+  folderConfigurationResource.fullPath(),
   200
 );
 
@@ -114,21 +120,21 @@ test.serial('renameSameFolderResource', async t => {
 test.serial(
   'folderResourceDoesNotExists',
   resourceExists,
-  folderConfigurationResource.resource.path,
+  folderConfigurationResource.fullPath(),
   404
 );
 
 test.serial(
   'folderResourceUpdateACL',
   updateACL,
-  {
-    webID: SOLID_WEBID,
-    controlModes: [AccessControlNamespace.Read, AccessControlNamespace.Write],
-    resource: {
+  new AccessControlConfig(
+    {
       ...folderConfigurationResourceRenamed.resource,
       isPublic: true
-    }
-  },
+    },
+    [AccessControlNamespace.Read, AccessControlNamespace.Write],
+    SOLID_WEBID
+  ),
   201
 );
 
@@ -142,7 +148,7 @@ test.serial(
 test.serial(
   'folderResourceDoesNotExist',
   resourceExists,
-  fileConfigurationResource.resource.path,
+  fileConfigurationResource.fullPath(),
   404
 );
 
@@ -156,7 +162,7 @@ test.serial(
 test.serial(
   'fileResourceExists',
   resourceExists,
-  fileConfigurationResource.resource.path,
+  fileConfigurationResource.fullPath(),
   200
 );
 
@@ -176,41 +182,24 @@ test.serial('renameSameFileResource', async t => {
   t.is(response.status, 200);
 });
 
-test.serial('updateRenamedFileResource', async t => {
-  const updatedText = 'This is a test text file that was changed';
-  await StorageFileManager.updateResource({
-    resource: {
-      path: fileConfigurationResourceRenamed.resource.path,
-      type: SolidResourceType.Folder,
-      contentType: 'text/plain',
-      body: updatedText
-    },
-    webID: SOLID_WEBID
-  });
-  const updatedFileContent = await StorageFileManager.getResource(
-    fileConfigurationResourceRenamed.resource.path
-  );
-  t.is(updatedFileContent, updatedText);
-});
-
 test.serial(
   'fileResourceDoesNotExists',
   resourceExists,
-  fileConfigurationResource.resource.path,
+  fileConfigurationResource.fullPath(),
   404
 );
 
 test.serial(
   'fileResourceUpdateACL',
   updateACL,
-  {
-    webID: SOLID_WEBID,
-    controlModes: [AccessControlNamespace.Read, AccessControlNamespace.Write],
-    resource: {
+  new AccessControlConfig(
+    {
       ...fileConfigurationResourceRenamed.resource,
       isPublic: true
-    }
-  },
+    },
+    [AccessControlNamespace.Read, AccessControlNamespace.Write],
+    SOLID_WEBID
+  ),
   201
 );
 
@@ -224,6 +213,6 @@ test.serial(
 test.serial(
   'fileResourceDoesNotExist',
   resourceExists,
-  fileConfigurationResourceRenamed.resource.path,
+  fileConfigurationResourceRenamed.fullPath(),
   404
 );

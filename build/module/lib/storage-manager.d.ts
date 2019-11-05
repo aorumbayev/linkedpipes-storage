@@ -1,30 +1,35 @@
 import * as $rdf from 'rdflib';
 declare enum SolidResourceType {
-    Folder = 0,
-    File = 1
+    Folder = "<http://www.w3.org/ns/ldp#BasicContainer>; rel=\"type\"",
+    File = "<http://www.w3.org/ns/ldp#Resource>; rel=\"type\""
 }
 interface SolidResource {
     readonly type: SolidResourceType;
     readonly path: string;
+    readonly title: string;
     readonly contentType?: string;
     readonly body?: string;
+    readonly isPublic?: boolean;
 }
-interface SolidACLResource extends SolidResource {
-    readonly isPublic: boolean;
-}
-interface ResourceConfig {
-    readonly webID: string;
+declare class ResourceConfig {
+    readonly webID?: string;
     readonly resource: SolidResource;
+    constructor(resource: SolidResource, webID?: string);
+    fullPath(): string;
+    fullPathWithAppendix(): string;
 }
-interface AccessControlConfig extends ResourceConfig {
+declare class AccessControlConfig extends ResourceConfig {
     readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
-    readonly resource: SolidACLResource;
+    constructor(resource: SolidResource, controlModes: ReadonlyArray<$rdf.NamedNode>, webID?: string);
+    fullACLPath(): string;
+    fullACLTitle(): string;
 }
-interface AccessControlStatementConfig extends AccessControlConfig {
+declare class AccessControlStatementConfig extends AccessControlConfig {
     readonly ownerNode: $rdf.NamedNode;
     readonly userNode?: $rdf.NamedNode;
     readonly resourceNode: $rdf.NamedNode;
     readonly aclResourceNode: $rdf.NamedNode;
+    constructor(resource: SolidResource, controlModes: ReadonlyArray<$rdf.NamedNode>, ownerNode: $rdf.NamedNode, resourceNode: $rdf.NamedNode, aclResourceNode: $rdf.NamedNode, userNode?: $rdf.NamedNode, webID?: string);
 }
 declare class AccessControlNamespace {
     static readonly Control: any;
@@ -46,14 +51,23 @@ declare class RDFNamespace {
 }
 declare class StorageFileManager {
     static updateACL(accessControlConfig: AccessControlConfig): Promise<any>;
+    static createACL(resourceConfig: AccessControlConfig, aclBody: string): Promise<any>;
     static createResource(resourceConfig: ResourceConfig): Promise<any>;
+    static deleteFolderContents(resourceConfig: ResourceConfig): Promise<any>;
     static deleteResource(resourceConfig: ResourceConfig): Promise<any>;
-    static getResource(path: string): Promise<any>;
-    static copyResource(originPath: string, destinationPath: string): Promise<any>;
+    static getResource(path: string, parameters?: object): Promise<any>;
+    static copyFile(originPath: string, destinationPath: string): Promise<any>;
+    static copyFolder(originPath: string, destinationPath: string): Promise<any>;
+    static copyResource(resourceConfig: ResourceConfig, destinationConfig: ResourceConfig): Promise<any>;
     static renameResource(oldResourceConfig: ResourceConfig, newResourceConfig: ResourceConfig): Promise<any>;
     static updateResource(resourceConfig: ResourceConfig): Promise<any>;
     static createOrUpdateResource(resourceConfig: ResourceConfig): Promise<any>;
     static resourceExists(resourceURL: string): Promise<any>;
+    static getFolder(folderConfig: ResourceConfig): Promise<{
+        readonly files: ResourceConfig[];
+        readonly folders: ResourceConfig[];
+    }>;
+    static readonly deleteFolderRecursively: (resourceConfig: any) => Promise<any>;
     private static createAccessControlStatement;
     private static createAccessControlList;
 }

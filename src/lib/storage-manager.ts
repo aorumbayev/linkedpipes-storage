@@ -1,44 +1,95 @@
 import * as $rdf from 'rdflib';
 import testClient from 'solid-auth-cli';
-import devClient from 'solid-auth-client';
 import { ENVIRONMENT } from './constants';
-const authClient = ENVIRONMENT === 'TEST' ? testClient : devClient;
+import { fetcher } from './rdf-manager';
+import * as Utils from './utils';
+const authClient = ENVIRONMENT === 'TEST' ? testClient : testClient;
 
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
 
 enum SolidResourceType {
-  Folder,
-  File
+  Folder = '<http://www.w3.org/ns/ldp#BasicContainer>; rel="type"',
+  File = '<http://www.w3.org/ns/ldp#Resource>; rel="type"'
 }
 
 interface SolidResource {
   readonly type: SolidResourceType;
   readonly path: string;
+  readonly title: string;
   readonly contentType?: string;
   readonly body?: string;
+  readonly isPublic?: boolean;
 }
 
-interface SolidACLResource extends SolidResource {
-  readonly isPublic: boolean;
+class ResourceConfig {
+  public readonly webID?: string;
+  public readonly resource: SolidResource;
+
+  constructor(resource: SolidResource, webID?: string) {
+    this.webID = webID;
+    this.resource = resource;
+  }
+
+  public fullPath(): string {
+    return this.resource.path + '/' + this.resource.title;
+  }
+
+  public fullPathWithAppendix(): string {
+    const folderAppendix =
+      this.resource.type === SolidResourceType.Folder ? '/' : '';
+    return this.resource.path + '/' + this.resource.title + folderAppendix;
+  }
 }
 
-interface ResourceConfig {
-  readonly webID: string;
-  readonly resource: SolidResource;
+class AccessControlConfig extends ResourceConfig {
+  public readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
+
+  constructor(
+    resource: SolidResource,
+    controlModes: ReadonlyArray<$rdf.NamedNode>,
+    webID?: string
+  ) {
+    super(resource, webID);
+    this.controlModes = controlModes;
+  }
+
+  public fullACLPath(): string {
+    const aclAppendix =
+      this.resource.type === SolidResourceType.Folder ? '/' : '';
+    return (
+      this.resource.path + '/' + this.resource.title + aclAppendix + '.acl'
+    );
+  }
+
+  public fullACLTitle(): string {
+    const aclAppendix =
+      this.resource.type === SolidResourceType.Folder ? '/' : '';
+    return this.resource.title + aclAppendix + '.acl';
+  }
 }
 
-interface AccessControlConfig extends ResourceConfig {
-  readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
-  readonly resource: SolidACLResource;
-}
-
-interface AccessControlStatementConfig extends AccessControlConfig {
-  readonly ownerNode: $rdf.NamedNode;
-  readonly userNode?: $rdf.NamedNode;
-  readonly resourceNode: $rdf.NamedNode;
-  readonly aclResourceNode: $rdf.NamedNode;
+class AccessControlStatementConfig extends AccessControlConfig {
+  public readonly ownerNode: $rdf.NamedNode;
+  public readonly userNode?: $rdf.NamedNode;
+  public readonly resourceNode: $rdf.NamedNode;
+  public readonly aclResourceNode: $rdf.NamedNode;
+  constructor(
+    resource: SolidResource,
+    controlModes: ReadonlyArray<$rdf.NamedNode>,
+    ownerNode: $rdf.NamedNode,
+    resourceNode: $rdf.NamedNode,
+    aclResourceNode: $rdf.NamedNode,
+    userNode?: $rdf.NamedNode,
+    webID?: string
+  ) {
+    super(resource, controlModes, webID);
+    this.ownerNode = ownerNode;
+    this.resourceNode = resourceNode;
+    this.aclResourceNode = aclResourceNode;
+    this.userNode = userNode;
+  }
 }
 
 class AccessControlNamespace {
@@ -66,19 +117,34 @@ class StorageFileManager {
   public static async updateACL(
     accessControlConfig: AccessControlConfig
   ): Promise<any> {
-    const accessListUrl = `${accessControlConfig.resource.path}.acl`;
-    const aclRequestBody = StorageFileManager.createAccessControlList(
-      accessControlConfig
-    );
+    try {
+      const aclRequestBody = StorageFileManager.createAccessControlList(
+        accessControlConfig
+      );
 
-    return StorageFileManager.createResource({
-      webID: accessControlConfig.webID,
-      resource: {
-        ...accessControlConfig.resource,
-        path: accessListUrl,
-        body: aclRequestBody
-      }
-    });
+      return StorageFileManager.createACL(accessControlConfig, aclRequestBody);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async createACL(
+    resourceConfig: AccessControlConfig,
+    aclBody: string
+  ): Promise<any> {
+    try {
+      const options = {
+        body: aclBody,
+        headers: {
+          'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
+        },
+        method: 'PUT'
+      };
+
+      return await authClient.fetch(resourceConfig.fullACLPath(), options);
+    } catch (e) {
+      throw e;
+    }
   }
 
   public static async createResource(
@@ -88,11 +154,35 @@ class StorageFileManager {
       const options = {
         body: resourceConfig.resource.body,
         headers: {
+          Link: resourceConfig.resource.type,
+          Slug: resourceConfig.resource.title,
           'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
         },
-        method: 'PUT'
+        method: 'POST'
       };
+
       return await authClient.fetch(resourceConfig.resource.path, options);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async deleteFolderContents(
+    resourceConfig: ResourceConfig
+  ): Promise<any> {
+    try {
+      const { files, folders } = await StorageFileManager.getFolder(
+        resourceConfig
+      );
+      const promises = [];
+      files.forEach(file =>
+        promises.push(StorageFileManager.deleteResource(file))
+      );
+      folders.forEach(folder =>
+        promises.push(StorageFileManager.deleteFolderRecursively(folder))
+      );
+      await Promise.all(promises);
+      return Promise.resolve({ status: 200 });
     } catch (e) {
       throw e;
     }
@@ -102,18 +192,36 @@ class StorageFileManager {
     resourceConfig: ResourceConfig
   ): Promise<any> {
     try {
-      return await authClient.fetch(resourceConfig.resource.path, {
-        method: 'DELETE'
-      });
+      if (resourceConfig.resource.type === SolidResourceType.File) {
+        return authClient.fetch(resourceConfig.fullPath(), {
+          method: 'DELETE'
+        });
+      } else {
+        const response = await authClient.fetch(resourceConfig.fullPath(), {
+          method: 'DELETE'
+        });
+        if (response.status === 409 || response.status === 301) {
+          // Solid pod returns 409 if the item is a folder and is not empty
+          // Solid pod returns 301 if is attempted to read a folder url without
+          // '/' at the end (from buildFileUrl)
+          return StorageFileManager.deleteFolderRecursively(resourceConfig);
+        } else {
+          return response;
+        }
+      }
     } catch (e) {
       throw e;
     }
   }
 
-  public static async getResource(path: string): Promise<any> {
+  public static async getResource(
+    path: string,
+    parameters?: object
+  ): Promise<any> {
     try {
       const response = await authClient.fetch(path, {
-        method: 'GET'
+        method: 'GET',
+        ...parameters
       });
       return await response.text();
     } catch (e) {
@@ -121,7 +229,7 @@ class StorageFileManager {
     }
   }
 
-  public static async copyResource(
+  public static async copyFile(
     originPath: string,
     destinationPath: string
   ): Promise<any> {
@@ -132,13 +240,57 @@ class StorageFileManager {
 
       const content = await response.text();
 
-      return await authClient.fetch(destinationPath, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': response.headers.contentType
-        },
-        body: content
+      await authClient
+        .fetch(destinationPath, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': response.headers.contentType
+          },
+          body: content
+        })
+        .then(
+          res => {
+            return Promise.resolve({ status: 201, response: res });
+          },
+          e => {
+            throw e;
+          }
+        );
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async copyFolder(
+    originPath: string,
+    destinationPath: string
+  ): Promise<any> {
+    try {
+      return await fetcher.recursiveCopy(originPath, destinationPath, {
+        copyACL: true,
+        fetch: authClient.fetch
       });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async copyResource(
+    resourceConfig: ResourceConfig,
+    destinationConfig: ResourceConfig
+  ): Promise<any> {
+    try {
+      if (resourceConfig.resource.type === SolidResourceType.File) {
+        return StorageFileManager.copyFile(
+          resourceConfig.fullPath(),
+          destinationConfig.fullPath()
+        );
+      } else {
+        return StorageFileManager.copyFolder(
+          resourceConfig.fullPath(),
+          destinationConfig.fullPath()
+        );
+      }
     } catch (e) {
       throw e;
     }
@@ -149,12 +301,12 @@ class StorageFileManager {
     newResourceConfig: ResourceConfig
   ): Promise<any> {
     try {
-      await StorageFileManager.copyResource(
-        oldResourceConfig.resource.path,
-        newResourceConfig.resource.path
-      );
-      if (oldResourceConfig.resource.path !== newResourceConfig.resource.path) {
-        return await StorageFileManager.deleteResource(oldResourceConfig);
+      if (oldResourceConfig.fullPath() !== newResourceConfig.fullPath()) {
+        await StorageFileManager.copyResource(
+          oldResourceConfig,
+          newResourceConfig
+        );
+        return StorageFileManager.deleteResource(oldResourceConfig);
       } else {
         return Promise.resolve({ status: 200 });
       }
@@ -167,7 +319,7 @@ class StorageFileManager {
     resourceConfig: ResourceConfig
   ): Promise<any> {
     try {
-      return await authClient.fetch(resourceConfig.resource.path, {
+      return await authClient.fetch(resourceConfig.fullPath(), {
         method: 'PUT',
         headers: {
           'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
@@ -184,7 +336,7 @@ class StorageFileManager {
   ): Promise<any> {
     try {
       const result = await StorageFileManager.resourceExists(
-        resourceConfig.resource.path
+        resourceConfig.fullPath()
       );
 
       return result.status === 404
@@ -202,6 +354,37 @@ class StorageFileManager {
       }
     });
   }
+
+  public static async getFolder(
+    folderConfig: ResourceConfig
+  ): Promise<{
+    readonly files: ResourceConfig[];
+    readonly folders: ResourceConfig[];
+  }> {
+    const response = await StorageFileManager.getResource(
+      folderConfig.fullPath(),
+      {
+        headers: { Accept: 'text/turtle' }
+      }
+    );
+    const folderRDF = await response.text();
+    const graph = await Utils.textToGraph(
+      folderRDF,
+      folderConfig.fullPath(),
+      'text/turtle'
+    );
+    const folderItems = Utils.extractFolderItems(
+      graph,
+      folderConfig.fullPath()
+    );
+
+    return folderItems;
+  }
+
+  public static readonly deleteFolderRecursively = async resourceConfig => {
+    await StorageFileManager.deleteFolderContents(resourceConfig);
+    return StorageFileManager.deleteResource(resourceConfig);
+  };
 
   private static createAccessControlStatement(
     statementConfig: AccessControlStatementConfig
@@ -265,36 +448,40 @@ class StorageFileManager {
   private static createAccessControlList(
     accessControlConfig: AccessControlConfig
   ): string {
-    const resource = $rdf.sym(accessControlConfig.resource.path);
-    const accessListUrl = `${accessControlConfig.resource.path}.acl`;
+    const resource = $rdf.sym(accessControlConfig.fullPathWithAppendix());
+    const accessListUrl = accessControlConfig.fullACLPath();
     const aclResourcePath = $rdf.sym(accessListUrl);
     const user = $rdf.sym(accessControlConfig.webID);
     const owner = $rdf.sym(`${accessListUrl}#owner`);
 
-    const ownerStatementConfig: AccessControlStatementConfig = {
-      ...accessControlConfig,
-      controlModes: [
+    const ownerStatementConfig: AccessControlStatementConfig = new AccessControlStatementConfig(
+      accessControlConfig.resource,
+      [
         AccessControlNamespace.Read,
         AccessControlNamespace.Write,
         AccessControlNamespace.Append,
         AccessControlNamespace.Control
       ],
-      ownerNode: owner,
-      userNode: user,
-      resourceNode: resource,
-      aclResourceNode: aclResourcePath
-    };
+      owner,
+      resource,
+      aclResourcePath,
+      user,
+      accessControlConfig.webID
+    );
     let acl = StorageFileManager.createAccessControlStatement(
       ownerStatementConfig
     );
     if (accessControlConfig.resource.isPublic === true) {
       const publicOwnerNode = $rdf.sym(`${accessListUrl}#public`);
-      const publicStatementConfig: AccessControlStatementConfig = {
-        ...accessControlConfig,
-        ownerNode: publicOwnerNode,
-        resourceNode: resource,
-        aclResourceNode: aclResourcePath
-      };
+      const publicStatementConfig: AccessControlStatementConfig = new AccessControlStatementConfig(
+        accessControlConfig.resource,
+        accessControlConfig.controlModes,
+        publicOwnerNode,
+        resource,
+        aclResourcePath,
+        undefined,
+        accessControlConfig.webID
+      );
       acl = acl.concat(
         StorageFileManager.createAccessControlStatement(publicStatementConfig)
       );
@@ -307,7 +494,7 @@ class StorageFileManager {
     $rdf.parse(
       finalACL,
       newStore,
-      accessControlConfig.resource.path,
+      accessControlConfig.fullPath(),
       'text/turtle',
       undefined
     );
