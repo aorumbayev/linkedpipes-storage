@@ -465,12 +465,22 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.5.tgz#66103d2eddc543d44a04394abb7be52506d7f290"
   integrity sha512-KEjODidV4XYUlJBF3XdjSH5FWoMCtO0utnhtdLf1AgeuZLOrRbvmU/gaRCVg7ZaQDjVf3l84egiY0mRNe5xE4A==
 
+"@types/node@^12.12.7":
+  version "12.12.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.7.tgz#01e4ea724d9e3bd50d90c11fd5980ba317d8fa11"
+  integrity sha512-E6Zn0rffhgd130zbCbAr/JdXfXkoOUFAKNs/rF8qnafSJ8KYaA/j3oz7dcwal+lYjLA7xvdd5J4wdYpCTlP8+w==
+
 "@types/rdf-js@^2.0.1":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/rdf-js/-/rdf-js-2.0.2.tgz#4e5e3d3e92a24bcd523be63dc9cc9001f11df348"
   integrity sha512-rHtC0mtRmMc9JzITesWhzmAXqfyJZhY8MygmmWZc3oWS5DPsGsKs+t3RXxGYlM4UKOqlD9Ki4owS1Cx/GPMeqw==
   dependencies:
     "@types/node" "*"
+
+"@types/solid-auth-client@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/solid-auth-client/-/solid-auth-client-2.3.1.tgz#3b09285d277a77b6e0f79b48a003ed89ab0feae0"
+  integrity sha512-9emczYL4Xs9tuclH016ZnVQ2ixiVzs9h5THabL64igCJsd98XwscCWGahpYIxpqQV40B6FnP1L77eJy2Iq8dpw==
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -2145,6 +2155,17 @@ glob-parent@^5.1.0, glob-parent@~5.1.0:
   dependencies:
     is-glob "^4.0.1"
 
+glob@^6.0.1:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-6.0.4.tgz#0f08860f6a155127b2fadd4f9ce24b1aab6e4d22"
+  integrity sha1-DwiGD2oVUSey+t1PnOJLGqtuTSI=
+  dependencies:
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "2 || 3"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3:
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.5.tgz#6714c69bee20f3c3e64c4dd905553e532b40cdc0"
@@ -3229,7 +3250,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.0, minimatch@^3.0.4:
+"minimatch@2 || 3", minimatch@^3.0.0, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -3298,6 +3319,23 @@ n3@^1.0.3, n3@^1.2.0, n3@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/n3/-/n3-1.3.0.tgz#9359ccac435d397fd815094f58739fb969a824bd"
   integrity sha512-qTbZPDpEc/+dUHMpC/WUi4bQbFdnKsb2ra/bE+pWdSvshzQeZLhCYtKQk4kQytTn2b625//eDBZYNda2wBjcfw==
+
+nativescript-dev-typescript@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/nativescript-dev-typescript/-/nativescript-dev-typescript-0.10.0.tgz#992299da10116a92d8b30b60231b37d1df4e1327"
+  integrity sha512-8NqJVNg+HEkEEEZ7ZyPnHSUjg18ewB0atyFBcIHFPbim4QYsgP+DCz/QxrsqcBKs6uQRFctBM06mYXUjX9JcMA==
+  dependencies:
+    nativescript-hook "^0.2.0"
+    semver "5.5.0"
+    typescript "~3.4.5"
+
+nativescript-hook@^0.2.0:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/nativescript-hook/-/nativescript-hook-0.2.5.tgz#ea85179ada2d619dcadc9dc32ec45bb5a3c6713e"
+  integrity sha512-ciGJtNbtMB2lGv8jAkUripkRjd3g8atX9VYPSt6e8PI6YPiOKeoma3xjcXoW66pFMYpHnfrbp6Mq9U/QtiQrVg==
+  dependencies:
+    glob "^6.0.1"
+    mkdirp "^0.5.1"
 
 neo-async@^2.6.0:
   version "2.6.1"
@@ -4245,6 +4283,11 @@ semver-diff@^2.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
+semver@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  integrity sha512-4SJ3dm0WAwWy/NVeioZh5AntkdJoWKxHxcmyP622fOkgHa4z3R0TdBJICINyaSDE6uNwVc8gZr+ZinwZAH4xIA==
+
 semver@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.0.0.tgz#05e359ee571e5ad7ed641a6eec1e547ba52dea65"
@@ -4952,6 +4995,11 @@ typescript@^3.5.3:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
   integrity sha512-unoCll1+l+YK4i4F8f22TaNVPRHcD9PA3yCuZ8g5e0qGqlVlJ/8FSateOLLSagn+Yg5+ZwuPkL8LFUc0Jcvksg==
+
+typescript@~3.4.5:
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
+  integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
 
 uglify-js@^3.1.4:
   version "3.6.7"

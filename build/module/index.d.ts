@@ -1,3 +1,3 @@
-import * as SolidAuthClient from './lib/auth-manager';
+import { StorageAuthenticationManager } from './lib/auth-manager';
 export * from './lib/storage-manager';
-export { SolidAuthClient };
+export { StorageAuthenticationManager };

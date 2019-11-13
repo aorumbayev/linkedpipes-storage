@@ -1,9 +1,7 @@
 import * as $rdf from 'rdflib';
-import testClient from 'solid-auth-cli';
-import { ENVIRONMENT } from './constants';
+import { StorageAuthenticationManager as authClient } from './auth-manager';
 import { fetcher } from './rdf-manager';
 import * as Utils from './utils';
-const authClient = ENVIRONMENT === 'TEST' ? testClient : testClient;
 
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
@@ -239,12 +237,15 @@ class StorageFileManager {
       });
 
       const content = await response.text();
+      // tslint:disable
+      const contentType = response.headers['contentType'];
+      // tslint:enable
 
       await authClient
         .fetch(destinationPath, {
           method: 'PUT',
           headers: {
-            'Content-Type': response.headers.contentType
+            'Content-Type': contentType
           },
           body: content
         })
