@@ -1,8 +1,16 @@
 import * as $rdf from 'rdflib';
-import { StorageAuthenticationManager as authClient } from './auth-manager';
-import { fetcher } from './rdf-manager';
+import {
+  StorageAuthenticationManager,
+  StorageTestAuthenticationManager
+} from './auth-manager';
+import { ENVIRONMENT } from './constants';
+import { StorageRdfManager } from './rdf-manager';
 import * as Utils from './utils';
 
+const authClient =
+  ENVIRONMENT === 'TEST'
+    ? StorageTestAuthenticationManager
+    : StorageAuthenticationManager;
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
@@ -267,10 +275,14 @@ class StorageFileManager {
     destinationPath: string
   ): Promise<any> {
     try {
-      return await fetcher.recursiveCopy(originPath, destinationPath, {
-        copyACL: true,
-        fetch: authClient.fetch
-      });
+      return await StorageRdfManager.fetcher.recursiveCopy(
+        originPath,
+        destinationPath,
+        {
+          copyACL: true,
+          fetch: authClient.fetch
+        }
+      );
     } catch (e) {
       throw e;
     }

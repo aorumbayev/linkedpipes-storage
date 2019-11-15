@@ -1,4 +1,5 @@
-const solidAuthClient = require('solid-auth-client');
+const solidAuthClient = require('solid-auth-cli');
+const solidAuthClientCLI = require('solid-auth-cli');
 
 /* tslint:disable */
 class AuthenticationManager {
@@ -31,6 +32,32 @@ class AuthenticationManager {
   }
 }
 
-let StorageAuthenticationManager = AuthenticationManager.getInstance(); // Error: constructor of 'Singleton' is private.
+class TestAuthenticationManager {
+  static getInstance() {
+    if (!TestAuthenticationManager.instance) {
+      TestAuthenticationManager.instance = new TestAuthenticationManager();
+    }
+    return TestAuthenticationManager.instance;
+  }
+  private static instance: TestAuthenticationManager;
+  private constructor() {
+    // do something construct...
+  }
 
-export { StorageAuthenticationManager };
+  fetch(input: RequestInfo, options: {}): Promise<Response> {
+    return solidAuthClientCLI.fetch(input, options);
+  }
+
+  login(options: {}): Promise<any> {
+    return solidAuthClientCLI.login(options);
+  }
+
+  async currentSession(): Promise<any> {
+    return solidAuthClientCLI.currentSession();
+  }
+}
+
+let StorageAuthenticationManager = AuthenticationManager.getInstance();
+let StorageTestAuthenticationManager = TestAuthenticationManager.getInstance();
+
+export { StorageAuthenticationManager, StorageTestAuthenticationManager };

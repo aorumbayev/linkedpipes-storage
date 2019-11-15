@@ -1,6 +1,7 @@
 import test from 'ava';
-import auth from 'solid-auth-cli';
 import uuid from 'uuid';
+import { StorageTestAuthenticationManager } from './auth-manager';
+import { logger } from './common';
 import {
   SOLID_PASSWORD,
   SOLID_PROVIDER_URL,
@@ -57,6 +58,7 @@ const folderConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
 
 async function createResource(t: any, input: any, expected: any): Promise<any> {
   const result = await StorageFileManager.createResource(input);
+  logger.info(result.text());
   t.is(result.status, expected);
 }
 
@@ -77,13 +79,14 @@ async function updateACL(t: any, input: any, expected: any): Promise<any> {
 }
 
 test.before(async () => {
-  session = await auth.currentSession();
+  session = await StorageTestAuthenticationManager.currentSession();
   if (!session) {
-    session = await auth.login({
+    session = await StorageTestAuthenticationManager.login({
       idp: SOLID_PROVIDER_URL,
       password: SOLID_PASSWORD,
       username: SOLID_USERNAME
     });
+    logger.info('Authentication response: ', session.webID);
   }
 });
 
