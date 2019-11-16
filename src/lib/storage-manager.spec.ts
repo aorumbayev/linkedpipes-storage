@@ -1,3 +1,4 @@
+// tslint:disable
 import test from 'ava';
 import uuid from 'uuid';
 import { StorageTestAuthenticationManager } from './auth-manager';
@@ -9,8 +10,6 @@ import {
   SOLID_WEBID
 } from './constants';
 import {
-  AccessControlConfig,
-  AccessControlNamespace,
   ResourceConfig,
   SolidResourceType,
   StorageFileManager
@@ -20,7 +19,7 @@ let session;
 
 const fileConfigurationResource: ResourceConfig = new ResourceConfig(
   {
-    path: `https://tester2.lpapps.co:8443`,
+    path: `https://lpstorage.inrupt.net`,
     title: `${uuid.v4()}.txt`,
     type: SolidResourceType.File,
     contentType: 'text/plain',
@@ -32,7 +31,7 @@ const fileConfigurationResource: ResourceConfig = new ResourceConfig(
 const fileConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
   {
     path: fileConfigurationResource.resource.path,
-    title: `${uuid.v4()}_renamed.txt`,
+    title: fileConfigurationResource.fullPath() + `_renamed.txt`,
     type: fileConfigurationResource.resource.type
   },
   fileConfigurationResource.webID
@@ -40,7 +39,7 @@ const fileConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
 
 const folderConfigurationResource: ResourceConfig = new ResourceConfig(
   {
-    path: `https://tester2.lpapps.co:8443`,
+    path: `https://lpstorage.inrupt.net`,
     title: uuid.v4(),
     type: SolidResourceType.Folder
   },
@@ -50,7 +49,7 @@ const folderConfigurationResource: ResourceConfig = new ResourceConfig(
 const folderConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
   {
     path: folderConfigurationResource.resource.path,
-    title: uuid.v4() + '_renamed',
+    title: folderConfigurationResource.resource.title + '_renamed',
     type: folderConfigurationResource.resource.type
   },
   folderConfigurationResource.webID
@@ -72,11 +71,11 @@ async function resourceExists(t: any, input: any, expected: any): Promise<any> {
   t.is(result.status, expected);
 }
 
-async function updateACL(t: any, input: any, expected: any): Promise<any> {
-  const result = await StorageFileManager.updateACL(input);
+// async function updateACL(t: any, input: any, expected: any): Promise<any> {
+//   const result = await StorageFileManager.updateACL(input);
 
-  t.is(result.status, expected);
-}
+//   t.is(result.status, expected);
+// }
 
 test.before(async () => {
   session = await StorageTestAuthenticationManager.currentSession();
@@ -104,17 +103,37 @@ test.serial(
   200
 );
 
+test.serial(
+  'createFolderResourceInFolder',
+  createResource,
+  new ResourceConfig(
+    {
+      path: folderConfigurationResource.fullPath(),
+      title: 'testFolder',
+      type: SolidResourceType.Folder
+    },
+    folderConfigurationResource.webID
+  ),
+  201
+);
+
+test.serial(
+  'createFileResourceInFolderResourceInFolder',
+  createResource,
+  new ResourceConfig(
+    {
+      path: folderConfigurationResource.fullPath() + '/testFolder',
+      title: 'testFile',
+      type: SolidResourceType.File
+    },
+    folderConfigurationResource.webID
+  ),
+  201
+);
+
 test.serial('renameFolderResource', async t => {
   const response = await StorageFileManager.renameResource(
     folderConfigurationResource,
-    folderConfigurationResourceRenamed
-  );
-  t.is(response.status, 200);
-});
-
-test.serial('renameSameFolderResource', async t => {
-  const response = await StorageFileManager.renameResource(
-    folderConfigurationResourceRenamed,
     folderConfigurationResourceRenamed
   );
   t.is(response.status, 200);
@@ -128,20 +147,6 @@ test.serial(
 );
 
 test.serial(
-  'folderResourceUpdateACL',
-  updateACL,
-  new AccessControlConfig(
-    {
-      ...folderConfigurationResourceRenamed.resource,
-      isPublic: true
-    },
-    [AccessControlNamespace.Read, AccessControlNamespace.Write],
-    SOLID_WEBID
-  ),
-  201
-);
-
-test.serial(
   'deleteFolderResource',
   deleteResource,
   folderConfigurationResourceRenamed,
@@ -151,7 +156,7 @@ test.serial(
 test.serial(
   'folderResourceDoesNotExist',
   resourceExists,
-  fileConfigurationResource.fullPath(),
+  folderConfigurationResourceRenamed.fullPath(),
   404
 );
 
@@ -190,20 +195,6 @@ test.serial(
   resourceExists,
   fileConfigurationResource.fullPath(),
   404
-);
-
-test.serial(
-  'fileResourceUpdateACL',
-  updateACL,
-  new AccessControlConfig(
-    {
-      ...fileConfigurationResourceRenamed.resource,
-      isPublic: true
-    },
-    [AccessControlNamespace.Read, AccessControlNamespace.Write],
-    SOLID_WEBID
-  ),
-  201
 );
 
 test.serial(

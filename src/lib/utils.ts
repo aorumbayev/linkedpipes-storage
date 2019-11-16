@@ -1,3 +1,4 @@
+import deepCopy from 'ts-deepcopy';
 import { rdflib } from './rdf-manager';
 import { ResourceConfig, SolidResourceType } from './storage-manager';
 
@@ -85,7 +86,7 @@ async function isFolder(
 
 async function extractFolderItems(
   graph: rdflib.IndexedFormula,
-  subj: string
+  subj: ResourceConfig
 ): Promise<{
   readonly files: ResourceConfig[];
   readonly folders: ResourceConfig[];
@@ -95,17 +96,22 @@ async function extractFolderItems(
 
   graph
     .each(
-      rdflib.sym(subj),
+      rdflib.sym(subj.fullPathWithAppendix()),
       rdflib.sym('http://www.w3.org/ns/ldp#contains'),
       undefined,
       undefined
     )
     .forEach(async (item: any) => {
       const url = item.value;
-
-      const titleIndex = url.lastIndexOf('/');
-      const resourceTitle = url.substr(titleIndex + 1);
-      const resourcePartialPath = url.substr(0, titleIndex + 1);
+      let processedUrl = item.value;
+      if (url.substr(-1) === '/') {
+        processedUrl = url.substr(0, url.length - 1);
+      }
+      const titleIndex = processedUrl.lastIndexOf('/');
+      const resourceTitle = processedUrl.substr(titleIndex + 1);
+      const resourcePartialPath = processedUrl
+        .substr(0, titleIndex + 1)
+        .replace(/\/$/, '');
 
       const resourceIsFolder = await isFolder(graph, url);
 
@@ -131,4 +137,4 @@ async function extractFolderItems(
   return { files, folders };
 }
 
-export { textToGraph, extractFolderItems };
+export { textToGraph, extractFolderItems, deepCopy };

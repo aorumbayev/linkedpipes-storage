@@ -56,9 +56,10 @@
     "ldflex": "^2.6.1",
     "n3": "^1.3.0",
     "nativescript-dev-typescript": "^0.10.0",
-    "rdflib": "https://github.com/aorumbayev/rdflib.js.git",
+    "rdflib": "1.0.6",
     "sha.js": "^2.4.11",
     "solid-auth-client": "2.4.0",
+    "ts-deepcopy": "^0.1.4",
     "uuid": "^3.3.3",
     "winston": "^3.2.1"
   },
