@@ -12,6 +12,25 @@ An implementation of LinkedPipes Applications Storage
 
 ## Prerequisited
 
+- [Yarn 1.19.1](https://yarnpkg.com)
+- [Node.js >v10.15.x](https://nodejs.org/en/)
+
 ## Installation
 
+### YARN
+
+```bash
+    yarn add linkedpipes-storage
+```
+
+### NPM
+
+```bash
+    npm install linkedpipes-storage
+```
+
 ## Testing
+
+```
+    yarn test
+```

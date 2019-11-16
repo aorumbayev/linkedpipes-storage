@@ -51,12 +51,17 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "@types/node": "^12.12.7",
+    "@types/solid-auth-client": "^2.3.1",
     "ldflex": "^2.6.1",
     "n3": "^1.3.0",
-    "rdflib": "https://github.com/aorumbayev/rdflib.js.git",
+    "nativescript-dev-typescript": "^0.10.0",
+    "rdflib": "1.0.6",
     "sha.js": "^2.4.11",
     "solid-auth-client": "2.4.0",
-    "uuid": "^3.3.3"
+    "ts-deepcopy": "^0.1.4",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",

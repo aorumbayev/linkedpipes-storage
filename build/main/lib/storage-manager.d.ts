@@ -56,8 +56,9 @@ declare class StorageFileManager {
     static deleteFolderContents(resourceConfig: ResourceConfig): Promise<any>;
     static deleteResource(resourceConfig: ResourceConfig): Promise<any>;
     static getResource(path: string, parameters?: object): Promise<any>;
-    static copyFile(originPath: string, destinationPath: string): Promise<any>;
-    static copyFolder(originPath: string, destinationPath: string): Promise<any>;
+    static copyFile(originResource: ResourceConfig, destinationResource: ResourceConfig): Promise<any>;
+    static copyFileToFolder(originResource: ResourceConfig, folderDestinationResource: ResourceConfig): Promise<any>;
+    static copyFolder(originConfig: ResourceConfig, destinationConfig: ResourceConfig): Promise<any>;
     static copyResource(resourceConfig: ResourceConfig, destinationConfig: ResourceConfig): Promise<any>;
     static renameResource(oldResourceConfig: ResourceConfig, newResourceConfig: ResourceConfig): Promise<any>;
     static updateResource(resourceConfig: ResourceConfig): Promise<any>;

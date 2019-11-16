@@ -1,10 +1,16 @@
 import * as $rdf from 'rdflib';
-import testClient from 'solid-auth-cli';
+import {
+  StorageAuthenticationManager,
+  StorageTestAuthenticationManager
+} from './auth-manager';
 import { ENVIRONMENT } from './constants';
-import { fetcher } from './rdf-manager';
+// import { StorageRdfManager } from './rdf-manager';
 import * as Utils from './utils';
-const authClient = ENVIRONMENT === 'TEST' ? testClient : testClient;
 
+const authClient =
+  ENVIRONMENT === 'TEST'
+    ? StorageTestAuthenticationManager
+    : StorageAuthenticationManager;
 const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
@@ -174,14 +180,24 @@ class StorageFileManager {
       const { files, folders } = await StorageFileManager.getFolder(
         resourceConfig
       );
-      const promises = [];
-      files.forEach(file =>
-        promises.push(StorageFileManager.deleteResource(file))
-      );
-      folders.forEach(folder =>
-        promises.push(StorageFileManager.deleteFolderRecursively(folder))
-      );
-      await Promise.all(promises);
+
+      /* tslint:disable */
+      for (const file of files) {
+        await StorageFileManager.deleteResource(file);
+      }
+
+      for (const folder of folders) {
+        const response = await authClient.fetch(folder.fullPath(), {
+          method: 'DELETE'
+        });
+        if (response.status === 409 || response.status === 301) {
+          // Solid pod returns 409 if the item is a folder and is not empty
+          // Solid pod returns 301 if is attempted to read a folder url without
+          // '/' at the end (from buildFileUrl)
+          await StorageFileManager.deleteFolderRecursively(folder);
+        }
+        /* tslint:enable */
+      }
       return Promise.resolve({ status: 200 });
     } catch (e) {
       throw e;
@@ -230,21 +246,26 @@ class StorageFileManager {
   }
 
   public static async copyFile(
-    originPath: string,
-    destinationPath: string
+    originResource: ResourceConfig,
+    destinationResource: ResourceConfig
   ): Promise<any> {
     try {
+      const originPath = originResource.fullPath();
+      const destinationPath = destinationResource.fullPath();
       const response = await authClient.fetch(originPath, {
         method: 'GET'
       });
 
       const content = await response.text();
+      // tslint:disable
+      const contentType = response.headers['contentType'];
+      // tslint:enable
 
       await authClient
         .fetch(destinationPath, {
           method: 'PUT',
           headers: {
-            'Content-Type': response.headers.contentType
+            'Content-Type': contentType
           },
           body: content
         })
@@ -261,15 +282,53 @@ class StorageFileManager {
     }
   }
 
-  public static async copyFolder(
-    originPath: string,
-    destinationPath: string
+  public static async copyFileToFolder(
+    originResource: ResourceConfig,
+    folderDestinationResource: ResourceConfig
   ): Promise<any> {
     try {
-      return await fetcher.recursiveCopy(originPath, destinationPath, {
-        copyACL: true,
-        fetch: authClient.fetch
-      });
+      const destinationResource = new ResourceConfig(
+        {
+          path: folderDestinationResource.fullPath(),
+          title: originResource.resource.title,
+          type: SolidResourceType.File
+        },
+        folderDestinationResource.webID
+      );
+      return StorageFileManager.copyFile(originResource, destinationResource);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  public static async copyFolder(
+    originConfig: ResourceConfig,
+    destinationConfig: ResourceConfig
+  ): Promise<any> {
+    try {
+      const { files, folders } = await StorageFileManager.getFolder(
+        originConfig
+      );
+
+      /* tslint:disable */
+      for (const file of files) {
+        await StorageFileManager.copyFileToFolder(file, destinationConfig);
+      }
+
+      for (const folder of folders) {
+        const destinationFolderConfig = new ResourceConfig(
+          {
+            path: destinationConfig.fullPath(),
+            title: folder.resource.title,
+            type: SolidResourceType.Folder
+          },
+          destinationConfig.webID
+        );
+        await StorageFileManager.createResource(destinationFolderConfig);
+        await StorageFileManager.copyFolder(folder, destinationFolderConfig);
+        /* tslint:enable */
+      }
+      return Promise.resolve({ status: 200 });
     } catch (e) {
       throw e;
     }
@@ -281,15 +340,10 @@ class StorageFileManager {
   ): Promise<any> {
     try {
       if (resourceConfig.resource.type === SolidResourceType.File) {
-        return StorageFileManager.copyFile(
-          resourceConfig.fullPath(),
-          destinationConfig.fullPath()
-        );
+        return StorageFileManager.copyFile(resourceConfig, destinationConfig);
       } else {
-        return StorageFileManager.copyFolder(
-          resourceConfig.fullPath(),
-          destinationConfig.fullPath()
-        );
+        await StorageFileManager.createResource(destinationConfig);
+        return StorageFileManager.copyFolder(resourceConfig, destinationConfig);
       }
     } catch (e) {
       throw e;
@@ -367,16 +421,13 @@ class StorageFileManager {
         headers: { Accept: 'text/turtle' }
       }
     );
-    const folderRDF = await response.text();
+    const folderRDF = response;
     const graph = await Utils.textToGraph(
       folderRDF,
-      folderConfig.fullPath(),
+      folderConfig.fullPathWithAppendix(),
       'text/turtle'
     );
-    const folderItems = Utils.extractFolderItems(
-      graph,
-      folderConfig.fullPath()
-    );
+    const folderItems = Utils.extractFolderItems(graph, folderConfig);
 
     return folderItems;
   }
