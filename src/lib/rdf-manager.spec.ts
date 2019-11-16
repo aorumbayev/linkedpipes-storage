@@ -73,7 +73,7 @@ test.serial('testUpdateAppFolder', async t => {
     SOLID_WEBID,
     undefined
   );
-  t.assert(fileContent.includes(folderConfigurationResource.resource.title));
+  t.assert(fileContent.includes('lpStorage'));
 });
 
 test.after(async () => {

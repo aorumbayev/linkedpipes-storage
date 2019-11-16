@@ -71,24 +71,23 @@ class RdfManager {
     webId: string,
     folderUrl: string
   ): Promise<boolean> {
-    const user = rdflib.sym(webId);
-    const predicate = rdflib.sym(LPA('lpStorage'));
-    const folder = rdflib.sym(folderUrl);
-    const profile = user.doc();
     try {
-      await this.load(profile);
-    } catch (err) {
-      return false;
-    }
-    const ins = [rdflib.st(user, predicate, folder, profile)];
-    const del = this.store.statementsMatching(user, predicate, null, profile);
-    try {
+      const user = rdflib.sym(webId);
+      const predicate = rdflib.sym(LPA('lpStorage'));
+      const folder = rdflib.sym(folderUrl);
+      const profile = user.doc();
+      try {
+        await this.load(profile);
+      } catch (err) {
+        return false;
+      }
+      const ins = [rdflib.st(user, predicate, folder, profile)];
+      const del = this.store.statementsMatching(user, predicate, null, profile);
       await this.updateResource(profile.value, ins, del);
+      return true;
     } catch (err) {
       return false;
     }
-    // this.registerChanges(profile);
-    return true;
   }
 }
 
