@@ -77,12 +77,25 @@
 				<a href="#prerequisited" id="prerequisited" style="color: inherit; text-decoration: none;">
 					<h2>Prerequisited</h2>
 				</a>
+				<ul>
+					<li><a href="https://yarnpkg.com">Yarn 1.19.1</a></li>
+					<li><a href="https://nodejs.org/en/">Node.js &gt;v10.15.x</a></li>
+				</ul>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
+				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
+					<h3>YARN</h3>
+				</a>
+				<pre><code class="language-bash">    yarn add linkedpipes-storage</code></pre>
+				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
+					<h3>NPM</h3>
+				</a>
+				<pre><code class="language-bash">    npm install linkedpipes-storage</code></pre>
 				<a href="#testing" id="testing" style="color: inherit; text-decoration: none;">
 					<h2>Testing</h2>
 				</a>
+				<pre><code>    yarn <span class="hljs-built_in">test</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -99,7 +112,16 @@
 						<a href="enums/solidresourcetype.html" class="tsd-kind-icon">Solid<wbr>Resource<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/accesscontrolconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/accesscontrolnamespace.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Namespace</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/authenticationmanager.html" class="tsd-kind-icon">Authentication<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/foafnamespace.html" class="tsd-kind-icon">FOAFNamespace</a>
@@ -108,19 +130,16 @@
 						<a href="classes/rdfnamespace.html" class="tsd-kind-icon">RDFNamespace</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/rdfmanager.html" class="tsd-kind-icon">Rdf<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/resourceconfig.html" class="tsd-kind-icon">Resource<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/storagefilemanager.html" class="tsd-kind-icon">Storage<wbr>File<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/accesscontrolconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/resourceconfig.html" class="tsd-kind-icon">Resource<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/solidaclresource.html" class="tsd-kind-icon">SolidACLResource</a>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/testauthenticationmanager.html" class="tsd-kind-icon">Test<wbr>Authentication<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/solidresource.html" class="tsd-kind-icon">Solid<wbr>Resource</a>
@@ -133,6 +152,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#foaf" class="tsd-kind-icon">FOAF</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#lpa" class="tsd-kind-icon">LPA</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#rdf" class="tsd-kind-icon">RDF</a>
@@ -149,8 +171,41 @@
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#solid_webid" class="tsd-kind-icon">SOLID_<wbr>WEBID</a>
 					</li>
-					<li class=" tsd-kind-variable">
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#storageauthenticationmanager" class="tsd-kind-icon">Storage<wbr>Authentication<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#storagerdfmanager" class="tsd-kind-icon">Storage<wbr>Rdf<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#storagetestauthenticationmanager" class="tsd-kind-icon">Storage<wbr>Test<wbr>Authentication<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#authclient" class="tsd-kind-icon">auth<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#logger" class="tsd-kind-icon">logger</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#solidauthclient" class="tsd-kind-icon">solid<wbr>Auth<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#solidauthclientcli" class="tsd-kind-icon">solid<wbr>Auth<wbr>ClientCLI</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#extractfolderitems" class="tsd-kind-icon">extract<wbr>Folder<wbr>Items</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#guessfiletype" class="tsd-kind-icon">guess<wbr>File<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#isfolder" class="tsd-kind-icon">is<wbr>Folder</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#login" class="tsd-kind-icon">login</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#texttograph" class="tsd-kind-icon">text<wbr>ToGraph</a>
 					</li>
 				</ul>
 			</nav>

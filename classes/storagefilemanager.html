@@ -81,12 +81,19 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyfile" class="tsd-kind-icon">copy<wbr>File</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyfiletofolder" class="tsd-kind-icon">copy<wbr>File<wbr>ToFolder</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyfolder" class="tsd-kind-icon">copy<wbr>Folder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyresource" class="tsd-kind-icon">copy<wbr>Resource</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createacl" class="tsd-kind-icon">createACL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createaccesscontrollist" class="tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createaccesscontrolstatement" class="tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>Statement</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createorupdateresource" class="tsd-kind-icon">create<wbr>OrUpdate<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createresource" class="tsd-kind-icon">create<wbr>Resource</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#deletefoldercontents" class="tsd-kind-icon">delete<wbr>Folder<wbr>Contents</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#deletefolderrecursively" class="tsd-kind-icon">delete<wbr>Folder<wbr>Recursively</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#getfolder" class="tsd-kind-icon">get<wbr>Folder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#getresource" class="tsd-kind-icon">get<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#renameresource" class="tsd-kind-icon">rename<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#resourceexists" class="tsd-kind-icon">resource<wbr>Exists</a></li>
@@ -100,25 +107,129 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-					<a name="copyresource" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy<wbr>Resource</h3>
+					<a name="copyfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy<wbr>File</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">copy<wbr>Resource<span class="tsd-signature-symbol">(</span>originPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, destinationPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>File<span class="tsd-signature-symbol">(</span>originResource<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, destinationResource<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L124">lib/storage-manager.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L248">lib/storage-manager.ts:248</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>originPath: <span class="tsd-signature-type">string</span></h5>
+									<h5>originResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 								<li>
-									<h5>destinationPath: <span class="tsd-signature-type">string</span></h5>
+									<h5>destinationResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="copyfiletofolder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy<wbr>File<wbr>ToFolder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>File<wbr>ToFolder<span class="tsd-signature-symbol">(</span>originResource<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, folderDestinationResource<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L285">lib/storage-manager.ts:285</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>originResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+								<li>
+									<h5>folderDestinationResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="copyfolder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy<wbr>Folder</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>Folder<span class="tsd-signature-symbol">(</span>originConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, destinationConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L304">lib/storage-manager.ts:304</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>originConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+								<li>
+									<h5>destinationConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="copyresource" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> copy<wbr>Resource</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">copy<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, destinationConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L337">lib/storage-manager.ts:337</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+								<li>
+									<h5>destinationConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="createacl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> createACL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">createACL<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a>, aclBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L137">lib/storage-manager.ts:137</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>resourceConfig: <a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
+								</li>
+								<li>
+									<h5>aclBody: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -129,19 +240,19 @@
 					<a name="createaccesscontrollist" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Access<wbr>Control<wbr>List</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>List<span class="tsd-signature-symbol">(</span>accessControlConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>List<span class="tsd-signature-symbol">(</span>accessControlConfig<span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L265">lib/storage-manager.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L499">lib/storage-manager.ts:499</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>accessControlConfig: <a href="../interfaces/accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
+									<h5>accessControlConfig: <a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -152,19 +263,19 @@
 					<a name="createaccesscontrolstatement" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Access<wbr>Control<wbr>Statement</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>Statement<span class="tsd-signature-symbol">(</span>statementConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>Statement<span class="tsd-signature-symbol">(</span>statementConfig<span class="tsd-signature-symbol">: </span><a href="accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L206">lib/storage-manager.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L440">lib/storage-manager.ts:440</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>statementConfig: <a href="../interfaces/accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a></h5>
+									<h5>statementConfig: <a href="accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -175,19 +286,19 @@
 					<a name="createorupdateresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>OrUpdate<wbr>Resource</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>OrUpdate<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>OrUpdate<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L182">lib/storage-manager.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L388">lib/storage-manager.ts:388</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>resourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -198,19 +309,65 @@
 					<a name="createresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Resource</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L84">lib/storage-manager.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L156">lib/storage-manager.ts:156</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>resourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="deletefoldercontents" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> delete<wbr>Folder<wbr>Contents</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Folder<wbr>Contents<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L176">lib/storage-manager.ts:176</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="deletefolderrecursively" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> delete<wbr>Folder<wbr>Recursively</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Folder<wbr>Recursively<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L435">lib/storage-manager.ts:435</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>resourceConfig: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -221,19 +378,19 @@
 					<a name="deleteresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> delete<wbr>Resource</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L101">lib/storage-manager.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L207">lib/storage-manager.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>resourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -241,22 +398,48 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-					<a name="getresource" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Resource</h3>
+					<a name="getfolder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Folder</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Folder<span class="tsd-signature-symbol">(</span>folderConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L113">lib/storage-manager.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L412">lib/storage-manager.ts:412</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>folderConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+					<a name="getresource" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Resource</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Resource<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L233">lib/storage-manager.ts:233</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <span class="tsd-signature-type">object</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -267,22 +450,22 @@
 					<a name="renameresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> rename<wbr>Resource</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">rename<wbr>Resource<span class="tsd-signature-symbol">(</span>oldResourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, newResourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">rename<wbr>Resource<span class="tsd-signature-symbol">(</span>oldResourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a>, newResourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L147">lib/storage-manager.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L353">lib/storage-manager.ts:353</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>oldResourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>oldResourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 								<li>
-									<h5>newResourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>newResourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -299,7 +482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L198">lib/storage-manager.ts:198</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L404">lib/storage-manager.ts:404</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -316,19 +499,19 @@
 					<a name="updateacl" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> updateACL</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">updateACL<span class="tsd-signature-symbol">(</span>accessControlConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">updateACL<span class="tsd-signature-symbol">(</span>accessControlConfig<span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L66">lib/storage-manager.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L123">lib/storage-manager.ts:123</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>accessControlConfig: <a href="../interfaces/accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
+									<h5>accessControlConfig: <a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -339,19 +522,19 @@
 					<a name="updateresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> update<wbr>Resource</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Resource<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/1baf11d/src/lib/storage-manager.ts#L166">lib/storage-manager.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/ee3f8a1/src/lib/storage-manager.ts#L372">lib/storage-manager.ts:372</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>resourceConfig: <a href="../interfaces/resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -374,7 +557,16 @@
 						<a href="../enums/solidresourcetype.html" class="tsd-kind-icon">Solid<wbr>Resource<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="accesscontrolconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="accesscontrolnamespace.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Namespace</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="authenticationmanager.html" class="tsd-kind-icon">Authentication<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="foafnamespace.html" class="tsd-kind-icon">FOAFNamespace</a>
@@ -382,13 +574,31 @@
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="rdfnamespace.html" class="tsd-kind-icon">RDFNamespace</a>
 					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="rdfmanager.html" class="tsd-kind-icon">Rdf<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="resourceconfig.html" class="tsd-kind-icon">Resource<wbr>Config</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-is-not-exported">
 						<a href="storagefilemanager.html" class="tsd-kind-icon">Storage<wbr>File<wbr>Manager</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#copyfile" class="tsd-kind-icon">copy<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#copyfiletofolder" class="tsd-kind-icon">copy<wbr>File<wbr>ToFolder</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#copyfolder" class="tsd-kind-icon">copy<wbr>Folder</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#copyresource" class="tsd-kind-icon">copy<wbr>Resource</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#createacl" class="tsd-kind-icon">createACL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#createaccesscontrollist" class="tsd-kind-icon">create<wbr>Access<wbr>Control<wbr>List</a>
@@ -403,7 +613,16 @@
 								<a href="storagefilemanager.html#createresource" class="tsd-kind-icon">create<wbr>Resource</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#deletefoldercontents" class="tsd-kind-icon">delete<wbr>Folder<wbr>Contents</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#deletefolderrecursively" class="tsd-kind-icon">delete<wbr>Folder<wbr>Recursively</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
+								<a href="storagefilemanager.html#getfolder" class="tsd-kind-icon">get<wbr>Folder</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#getresource" class="tsd-kind-icon">get<wbr>Resource</a>
@@ -424,17 +643,8 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/accesscontrolconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/resourceconfig.html" class="tsd-kind-icon">Resource<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/solidaclresource.html" class="tsd-kind-icon">SolidACLResource</a>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="testauthenticationmanager.html" class="tsd-kind-icon">Test<wbr>Authentication<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="../interfaces/solidresource.html" class="tsd-kind-icon">Solid<wbr>Resource</a>
@@ -447,6 +657,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#foaf" class="tsd-kind-icon">FOAF</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#lpa" class="tsd-kind-icon">LPA</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#rdf" class="tsd-kind-icon">RDF</a>
@@ -463,8 +676,41 @@
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#solid_webid" class="tsd-kind-icon">SOLID_<wbr>WEBID</a>
 					</li>
-					<li class=" tsd-kind-variable">
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#storageauthenticationmanager" class="tsd-kind-icon">Storage<wbr>Authentication<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#storagerdfmanager" class="tsd-kind-icon">Storage<wbr>Rdf<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#storagetestauthenticationmanager" class="tsd-kind-icon">Storage<wbr>Test<wbr>Authentication<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="../globals.html#authclient" class="tsd-kind-icon">auth<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#logger" class="tsd-kind-icon">logger</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#solidauthclient" class="tsd-kind-icon">solid<wbr>Auth<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#solidauthclientcli" class="tsd-kind-icon">solid<wbr>Auth<wbr>ClientCLI</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#extractfolderitems" class="tsd-kind-icon">extract<wbr>Folder<wbr>Items</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#guessfiletype" class="tsd-kind-icon">guess<wbr>File<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#isfolder" class="tsd-kind-icon">is<wbr>Folder</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#login" class="tsd-kind-icon">login</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="../globals.html#texttograph" class="tsd-kind-icon">text<wbr>ToGraph</a>
 					</li>
 				</ul>
 			</nav>
