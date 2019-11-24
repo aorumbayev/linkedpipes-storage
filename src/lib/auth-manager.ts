@@ -1,4 +1,4 @@
-const solidAuthClient = require('solid-auth-cli');
+const solidAuthClient = require('solid-auth-client');
 const solidAuthClientCLI = require('solid-auth-cli');
 
 /* tslint:disable */
