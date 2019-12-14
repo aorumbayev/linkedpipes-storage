@@ -1,5 +1,5 @@
-<p align="center"><img  width=25%  src="markdown/logo.png" border="0" /></p>
-<p align="center"><img width=45% src="markdown/logo_text.png" alt="linkedpipes-logo" border="0" /></p>
+<p align="center"><img  width=25%  src="https://i.ibb.co/c2dNgFH/logo.png" border="0" /></p>
+<p align="center"><img width=45% src="https://i.ibb.co/kX8GSYn/logo-text.png" alt="linkedpipes-logo" border="0" /></p>
 
 <p align="center">
     <a href="https://travis-ci.com/aorumbayev/linkedpipes-storage"><img src="https://travis-ci.com/aorumbayev/linkedpipes-storage.svg?branch=dev" alt="Travis status" /></a>
