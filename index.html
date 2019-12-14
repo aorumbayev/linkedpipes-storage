@@ -69,11 +69,13 @@
 				<p align="center">
 					<a href="https://travis-ci.com/aorumbayev/linkedpipes-storage"><img src="https://travis-ci.com/aorumbayev/linkedpipes-storage.svg?branch=dev" alt="Travis status" /></a>
 					<a href="https://codecov.io/gh/aorumbayev/linkedpipes-storage"> <img src="https://codecov.io/gh/aorumbayev/linkedpipes-storage/branch/dev/graph/badge.svg" /> </a>
+					<a href="https://aorumbayev.github.io/linkedpipes-storage/"><img src="https://img.shields.io/badge/Documentation-TypeDoc-Blue.svg" alt="Apiary" /></a>
 				</p>
 				<a href="#about" id="about" style="color: inherit; text-decoration: none;">
 					<h2>About</h2>
 				</a>
-				<p>An implementation of LinkedPipes Applications Storage</p>
+				<p>An implementation of LinkedPipes Applications Storage.
+				The package adds functionality to interact with <a href="https://solid.inrupt.com/get-a-solid-pod">SOLID PODs</a> and is intented to be used with <a href="https://github.com/linkedpipes/applications">LinkedPipes Applications Platform</a>. However, some generic abstractions can be expanded for more generic use-cases.</p>
 				<a href="#prerequisited" id="prerequisited" style="color: inherit; text-decoration: none;">
 					<h2>Prerequisited</h2>
 				</a>
@@ -81,21 +83,62 @@
 					<li><a href="https://yarnpkg.com">Yarn 1.19.1</a></li>
 					<li><a href="https://nodejs.org/en/">Node.js &gt;v10.15.x</a></li>
 				</ul>
+				<p>Aside from local prerequisited, the software is intented to be used along with a web server implementing <a href="https://github.com/solid/solid-spec">SOLID project requirements</a>. The framework was actively tested with an instance of <a href="https://github.com/solid/node-solid-server">node-solid-server</a>.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
-					<h3>YARN</h3>
+				<p>Using <code>yarn</code>:</p>
+				<pre><code class="language-bash">yarn add linkedpipes-storage</code></pre>
+				<p>Using <code>npm</code>:</p>
+				<pre><code class="language-bash">npm install linkedpipes-storage</code></pre>
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h2>Quick start</h2>
 				</a>
-				<pre><code class="language-bash">    yarn add linkedpipes-storage</code></pre>
-				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
-					<h3>NPM</h3>
+				<p>The generic examples below demonstrate the usage of <code>StorageFileManager</code> abstraction. For more detailed examples and TypeScript documentation refer <a href="https://aorumbayev.github.io/linkedpipes-storage/">here</a>.</p>
+				<a href="#1-creating-coderesourceconfigcode" id="1-creating-coderesourceconfigcode" style="color: inherit; text-decoration: none;">
+					<h3>1. Creating <code>ResourceConfig</code></h3>
 				</a>
-				<pre><code class="language-bash">    npm install linkedpipes-storage</code></pre>
+				<p>The <code>ResourceConfig</code> is a class describing your resource inside SOLID POD. In this example let&#39;s define a single resource configuration class instance for a folder to be created in a POD:</p>
+				<pre><code class="language-JavaScript"><span class="hljs-keyword">import</span> { ResourceConfig, SolidResourceType } <span class="hljs-keyword">from</span> <span class="hljs-string">'./storage-manager'</span>;
+
+<span class="hljs-keyword">const</span> folderConfigurationResource: ResourceConfig = <span class="hljs-keyword">new</span> ResourceConfig(
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">`https://{your_username}.inrupt.net`</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">`<span class="hljs-subst">${your_title}</span>.txt`</span>,
+    <span class="hljs-attr">type</span>: SolidResourceType.Folder
+  },
+  {your_web_id}
+);</code></pre>
+				<a href="#2-creating-editing-deleting-resource" id="2-creating-editing-deleting-resource" style="color: inherit; text-decoration: none;">
+					<h3>2. Creating, editing, deleting resource</h3>
+				</a>
+				<p>After defining the <code>ResourceConfig</code> instance, let&#39;s create one:</p>
+				<pre><code class="language-JavaScript"><span class="hljs-keyword">import</span> { StorageFileManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./storage-manager'</span>;
+
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> StorageFileManager.createResource(fileConfigurationResource);</code></pre>
+				<a href="#renaming-folder" id="renaming-folder" style="color: inherit; text-decoration: none;">
+					<h4>Renaming folder</h4>
+				</a>
+				<pre><code class="language-JavaScript"><span class="hljs-keyword">const</span> folderConfigurationResourceRenamed: ResourceConfig = <span class="hljs-keyword">new</span> ResourceConfig(
+  {
+    <span class="hljs-attr">path</span>: fileConfigurationResource.resource.path,
+    <span class="hljs-attr">title</span>: fileConfigurationResource.resource.title + <span class="hljs-string">'_renamed'</span>,
+    <span class="hljs-attr">type</span>: fileConfigurationResource.resource.type
+  },
+  fileConfigurationResource.webID
+); <span class="hljs-comment">// Defines a sample renamed resource</span>
+
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> StorageFileManager.renameResource(folderConfigurationResource, folderConfigurationResourceRenamed);</code></pre>
+				<a href="#deleting-folder" id="deleting-folder" style="color: inherit; text-decoration: none;">
+					<h3>Deleting folder</h3>
+				</a>
+				<pre><code class="language-JavaScript"><span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> StorageFileManager.deleteResource(folderConfigurationResourceRenamed);</code></pre>
 				<a href="#testing" id="testing" style="color: inherit; text-decoration: none;">
 					<h2>Testing</h2>
 				</a>
-				<pre><code>    yarn <span class="hljs-built_in">test</span></code></pre>
+				<p>Testing is performed using <a href="https://github.com/avajs/ava">ava.js</a> and <a href="https://istanbul.js.org">istanbul.js</a> frameworks.</p>
+				<p>Executing tests is performed as follows:</p>
+				<pre><code class="language-bash">yarn <span class="hljs-built_in">test</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
