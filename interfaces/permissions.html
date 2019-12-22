@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SolidResource | linkedpipes-storage</title>
+	<title>Permissions | linkedpipes-storage</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="solidresource.html">SolidResource</a>
+					<a href="permissions.html">Permissions</a>
 				</li>
 			</ul>
-			<h1>Interface SolidResource</h1>
+			<h1>Interface Permissions</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SolidResource</span>
+						<span class="target">Permissions</span>
 					</li>
 				</ul>
 			</section>
@@ -81,12 +81,8 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#ispublic" class="tsd-kind-icon">is<wbr>Public</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#title" class="tsd-kind-icon">title</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="solidresource.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="permissions.html#agents" class="tsd-kind-icon">agents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="permissions.html#modes" class="tsd-kind-icon">modes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,62 +91,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="body" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> body</h3>
-					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="agents" class="tsd-anchor"></a>
+					<h3>agents</h3>
+					<div class="tsd-signature tsd-kind-icon">agents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L29">lib/storage-manager.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/helpers/access-control-list.ts#L19">lib/helpers/access-control-list.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="contenttype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> content<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="modes" class="tsd-anchor"></a>
+					<h3>modes</h3>
+					<div class="tsd-signature tsd-kind-icon">modes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L28">lib/storage-manager.ts:28</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="ispublic" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Public</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Public<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L30">lib/storage-manager.ts:30</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="path" class="tsd-anchor"></a>
-					<h3>path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L26">lib/storage-manager.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="title" class="tsd-anchor"></a>
-					<h3>title</h3>
-					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L27">lib/storage-manager.ts:27</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/solidresourcetype.html" class="tsd-signature-type">SolidResourceType</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L25">lib/storage-manager.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/helpers/access-control-list.ts#L20">lib/helpers/access-control-list.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -169,25 +125,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-is-not-exported">
-						<a href="solidresource.html" class="tsd-kind-icon">Solid<wbr>Resource</a>
+						<a href="permissions.html" class="tsd-kind-icon">Permissions</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#body" class="tsd-kind-icon">body</a>
+								<a href="permissions.html#agents" class="tsd-kind-icon">agents</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#ispublic" class="tsd-kind-icon">is<wbr>Public</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#path" class="tsd-kind-icon">path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#title" class="tsd-kind-icon">title</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="solidresource.html#type" class="tsd-kind-icon">type</a>
+								<a href="permissions.html#modes" class="tsd-kind-icon">modes</a>
 							</li>
 						</ul>
 					</li>
