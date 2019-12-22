@@ -12,14 +12,16 @@ import {
 import {
   ResourceConfig,
   SolidResourceType,
-  StorageFileManager
+  StorageFileManager,
+  AccessControlConfig,
+  AccessControlNamespace
 } from './storage-manager';
 
 let session;
 
 const fileConfigurationResource: ResourceConfig = new ResourceConfig(
   {
-    path: `https://lpstorage.inrupt.net`,
+    path: `https://aorumbayev123.inrupt.net`,
     title: `${uuid.v4()}.txt`,
     type: SolidResourceType.File,
     contentType: 'text/plain',
@@ -39,9 +41,10 @@ const fileConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
 
 const folderConfigurationResource: ResourceConfig = new ResourceConfig(
   {
-    path: `https://lpstorage.inrupt.net`,
+    path: `https://aorumbayev123.inrupt.net`,
     title: uuid.v4(),
-    type: SolidResourceType.Folder
+    type: SolidResourceType.Folder,
+    isPublic: true
   },
   SOLID_WEBID
 );
@@ -50,6 +53,15 @@ const folderConfigurationResourceRenamed: ResourceConfig = new ResourceConfig(
   {
     path: folderConfigurationResource.resource.path,
     title: folderConfigurationResource.resource.title + '_renamed',
+    type: folderConfigurationResource.resource.type
+  },
+  folderConfigurationResource.webID
+);
+
+const folderInFolderResource: ResourceConfig = new ResourceConfig(
+  {
+    path: folderConfigurationResource.fullPath(),
+    title: 'sub_folder',
     type: folderConfigurationResource.resource.type
   },
   folderConfigurationResource.webID
@@ -71,11 +83,11 @@ async function resourceExists(t: any, input: any, expected: any): Promise<any> {
   t.is(result.status, expected);
 }
 
-// async function updateACL(t: any, input: any, expected: any): Promise<any> {
-//   const result = await StorageFileManager.updateACL(input);
+async function updateACL(t: any, input: any, expected: any): Promise<any> {
+  const result = await StorageFileManager.updateACL(input);
 
-//   t.is(result.status, expected);
-// }
+  t.is(result.status, expected);
+}
 
 test.before(async () => {
   session = await StorageTestAuthenticationManager.currentSession();
@@ -97,22 +109,38 @@ test.serial(
 );
 
 test.serial(
-  'folderResourceExists',
-  resourceExists,
-  folderConfigurationResource.fullPath(),
-  200
+  'createFolderResourceAcl',
+  updateACL,
+  new AccessControlConfig(
+    folderConfigurationResource.resource,
+    [
+      AccessControlNamespace.Read,
+      AccessControlNamespace.Write,
+      AccessControlNamespace.Control
+    ],
+    folderConfigurationResource.webID
+  ),
+  201
 );
 
 test.serial(
-  'createFolderResourceInFolder',
+  'createFolderInFolder',
   createResource,
-  new ResourceConfig(
-    {
-      path: folderConfigurationResource.fullPath(),
-      title: 'testFolder',
-      type: SolidResourceType.Folder
-    },
-    folderConfigurationResource.webID
+  folderInFolderResource,
+  201
+);
+
+test.serial(
+  'createFolderInFolderResourceAcl',
+  updateACL,
+  new AccessControlConfig(
+    folderInFolderResource.resource,
+    [
+      AccessControlNamespace.Read,
+      AccessControlNamespace.Write,
+      AccessControlNamespace.Control
+    ],
+    folderInFolderResource.webID
   ),
   201
 );
@@ -122,7 +150,7 @@ test.serial(
   createResource,
   new ResourceConfig(
     {
-      path: folderConfigurationResource.fullPath() + '/testFolder',
+      path: folderInFolderResource.fullPath(),
       title: 'testFile',
       type: SolidResourceType.File
     },
@@ -140,23 +168,9 @@ test.serial('renameFolderResource', async t => {
 });
 
 test.serial(
-  'folderResourceDoesNotExists',
-  resourceExists,
-  folderConfigurationResource.fullPath(),
-  404
-);
-
-test.serial(
-  'deleteFolderResource',
-  deleteResource,
-  folderConfigurationResourceRenamed,
-  200
-);
-
-test.serial(
   'folderResourceDoesNotExist',
   resourceExists,
-  folderConfigurationResourceRenamed.fullPath(),
+  folderConfigurationResource.fullPath(),
   404
 );
 

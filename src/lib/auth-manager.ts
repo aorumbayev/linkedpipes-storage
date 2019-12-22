@@ -14,7 +14,7 @@ class AuthenticationManager {
     // do something construct...
   }
 
-  fetch(input: RequestInfo, options: {}): Promise<Response> {
+  fetch(input: RequestInfo, options: {} = {}): Promise<Response> {
     return solidAuthClient.fetch(input, options);
   }
 
@@ -44,7 +44,7 @@ class TestAuthenticationManager {
     // do something construct...
   }
 
-  fetch(input: RequestInfo, options: {}): Promise<Response> {
+  fetch(input: RequestInfo, options: {} = {}): Promise<Response> {
     return solidAuthClientCLI.fetch(input, options);
   }
 
