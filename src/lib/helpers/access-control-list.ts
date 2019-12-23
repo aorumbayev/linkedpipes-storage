@@ -156,14 +156,7 @@ export default class AccessControlList {
   public createACL = async (permissions = null) => {
     try {
       if (permissions) {
-        const permissionList = [
-          {
-            agents: this.owner,
-            modes: [PERMISSIONS.READ, PERMISSIONS.WRITE, PERMISSIONS.CONTROL]
-          },
-          ...permissions
-        ];
-        const body = this.createPermissionsTurtle(permissionList);
+        const body = this.createPermissionsTurtle(permissions);
         return this.createSolidResource(this.aclUri, { body });
       }
     } catch (error) {

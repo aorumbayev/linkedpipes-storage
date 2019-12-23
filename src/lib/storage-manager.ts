@@ -125,16 +125,14 @@ class StorageFileManager {
     accessControlConfig: AccessControlConfig
   ): Promise<any> {
     try {
-      // const aclRequestBody = StorageFileManager.createAccessControlList(
-      //   accessControlConfig
-      // );
-
-      // return StorageFileManager.createACL(accessControlConfig, aclRequestBody);
       const documentURI = accessControlConfig.fullPathWithAppendix();
       const { MODES } = AccessControlList;
       const permissions = [
         { modes: [MODES.CONTROL], agents: [accessControlConfig.webID] }
       ];
+      if (accessControlConfig.resource.isPublic) {
+        permissions.push({ modes: [MODES.READ], agents: undefined });
+      }
       const aclInstance = new AccessControlList(
         accessControlConfig.webID,
         documentURI
