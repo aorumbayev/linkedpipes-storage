@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export const PERMISSIONS = {
   APPEND: 'Append',
   READ: 'Read',

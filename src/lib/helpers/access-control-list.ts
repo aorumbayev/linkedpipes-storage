@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { namedNode } from '@rdfjs/data-model';
 import ldflex from '@solid/query-ldflex';
 import { isEqual } from 'lodash';
