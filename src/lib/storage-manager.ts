@@ -50,16 +50,21 @@ class ResourceConfig {
   }
 }
 
+interface Privileges {
+  agents: null | string[];
+  modes: string[];
+}
+
 class AccessControlConfig extends ResourceConfig {
-  public readonly controlModes: ReadonlyArray<$rdf.NamedNode>;
+  public readonly privileges: Privileges[];
 
   constructor(
     resource: SolidResource,
-    controlModes: ReadonlyArray<$rdf.NamedNode>,
+    privileges: Privileges[],
     webID?: string
   ) {
     super(resource, webID);
-    this.controlModes = controlModes;
+    this.privileges = privileges;
   }
 
   public fullACLPath(): string {
@@ -84,14 +89,14 @@ class AccessControlStatementConfig extends AccessControlConfig {
   public readonly aclResourceNode: $rdf.NamedNode;
   constructor(
     resource: SolidResource,
-    controlModes: ReadonlyArray<$rdf.NamedNode>,
+    privileges: Privileges[],
     ownerNode: $rdf.NamedNode,
     resourceNode: $rdf.NamedNode,
     aclResourceNode: $rdf.NamedNode,
     userNode?: $rdf.NamedNode,
     webID?: string
   ) {
-    super(resource, controlModes, webID);
+    super(resource, privileges, webID);
     this.ownerNode = ownerNode;
     this.resourceNode = resourceNode;
     this.aclResourceNode = aclResourceNode;
@@ -128,7 +133,11 @@ class StorageFileManager {
       const documentURI = accessControlConfig.fullPathWithAppendix();
       const { MODES } = AccessControlList;
       const permissions = [
-        { modes: [MODES.CONTROL], agents: [accessControlConfig.webID] }
+        ...accessControlConfig.privileges,
+        {
+          modes: [MODES.READ, MODES.WRITE, MODES.CONTROL],
+          agents: [accessControlConfig.webID]
+        }
       ];
       if (accessControlConfig.resource.isPublic) {
         permissions.push({ modes: [MODES.READ], agents: undefined });
@@ -445,121 +454,6 @@ class StorageFileManager {
     await StorageFileManager.deleteFolderContents(resourceConfig);
     return StorageFileManager.deleteResource(resourceConfig);
   };
-
-  // private static createAccessControlStatement(
-  //   statementConfig: AccessControlStatementConfig
-  // ): any[] {
-  //   const acl: any[] = [
-  //     $rdf.st(
-  //       statementConfig.ownerNode,
-  //       RDFNamespace.type,
-  //       AccessControlNamespace.Authorization,
-  //       statementConfig.aclResourceNode
-  //     ),
-  //     $rdf.st(
-  //       statementConfig.ownerNode,
-  //       AccessControlNamespace.accessTo,
-  //       statementConfig.resourceNode,
-  //       statementConfig.aclResourceNode
-  //     )
-  //   ];
-  //   if (statementConfig.userNode) {
-  //     acl.push(
-  //       $rdf.st(
-  //         statementConfig.ownerNode,
-  //         AccessControlNamespace.agent,
-  //         statementConfig.userNode,
-  //         statementConfig.aclResourceNode
-  //       )
-  //     );
-  //   } else {
-  //     acl.push(
-  //       $rdf.st(
-  //         statementConfig.ownerNode,
-  //         AccessControlNamespace.agentClass,
-  //         FOAFNamespace.Agent,
-  //         statementConfig.aclResourceNode
-  //       )
-  //     );
-  //   }
-  //   statementConfig.controlModes.forEach(mode => {
-  //     acl.push(
-  //       $rdf.st(
-  //         statementConfig.ownerNode,
-  //         AccessControlNamespace.mode,
-  //         mode,
-  //         statementConfig.aclResourceNode
-  //       )
-  //     );
-  //   });
-  //   if (statementConfig.resource.type === SolidResourceType.File) {
-  //     acl.push(
-  //       $rdf.st(
-  //         statementConfig.ownerNode,
-  //         AccessControlNamespace.defaultForNew,
-  //         statementConfig.resourceNode,
-  //         statementConfig.aclResourceNode
-  //       )
-  //     );
-  //   }
-  //   return acl;
-  // }
-
-  //   private static createAccessControlList(
-  //     accessControlConfig: AccessControlConfig
-  //   ): string {
-  //     const resource = $rdf.sym(accessControlConfig.fullPathWithAppendix());
-  //     const accessListUrl = accessControlConfig.fullACLPath();
-  //     const aclResourcePath = $rdf.sym(accessListUrl);
-  //     const user = $rdf.sym(accessControlConfig.webID);
-  //     const owner = $rdf.sym(`${accessListUrl}#owner`);
-
-  //     const ownerStatementConfig: AccessControlStatementConfig = new AccessControlStatementConfig(
-  //       accessControlConfig.resource,
-  //       [
-  //         AccessControlNamespace.Read,
-  //         AccessControlNamespace.Write,
-  //         AccessControlNamespace.Control
-  //       ],
-  //       owner,
-  //       resource,
-  //       aclResourcePath,
-  //       user,
-  //       accessControlConfig.webID
-  //     );
-  //     let acl = StorageFileManager.createAccessControlStatement(
-  //       ownerStatementConfig
-  //     );
-  //     if (accessControlConfig.resource.isPublic === true) {
-  //       const publicOwnerNode = $rdf.sym(`${accessListUrl}#public`);
-  //       const publicStatementConfig: AccessControlStatementConfig = new AccessControlStatementConfig(
-  //         accessControlConfig.resource,
-  //         accessControlConfig.controlModes,
-  //         publicOwnerNode,
-  //         resource,
-  //         aclResourcePath,
-  //         undefined,
-  //         accessControlConfig.webID
-  //       );
-  //       acl = acl.concat(
-  //         StorageFileManager.createAccessControlStatement(publicStatementConfig)
-  //       );
-  //     }
-
-  //     const finalACL = acl.join('\n').toString();
-
-  //     const newStore = $rdf.graph();
-
-  //     $rdf.parse(
-  //       finalACL,
-  //       newStore,
-  //       accessControlConfig.fullPath(),
-  //       'text/turtle',
-  //       undefined
-  //     );
-  //     const response = newStore.serialize(accessListUrl, 'text/turtle', '');
-  //     return response;
-  //   }
 }
 
 export {

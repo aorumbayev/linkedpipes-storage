@@ -13,8 +13,7 @@ import {
   ResourceConfig,
   SolidResourceType,
   StorageFileManager,
-  AccessControlConfig,
-  AccessControlNamespace
+  AccessControlConfig
 } from './storage-manager';
 
 let session;
@@ -113,11 +112,7 @@ test.serial(
   updateACL,
   new AccessControlConfig(
     folderConfigurationResource.resource,
-    [
-      AccessControlNamespace.Read,
-      AccessControlNamespace.Write,
-      AccessControlNamespace.Control
-    ],
+    [],
     folderConfigurationResource.webID
   ),
   201
@@ -135,11 +130,7 @@ test.serial(
   updateACL,
   new AccessControlConfig(
     folderInFolderResource.resource,
-    [
-      AccessControlNamespace.Read,
-      AccessControlNamespace.Write,
-      AccessControlNamespace.Control
-    ],
+    [],
     folderInFolderResource.webID
   ),
   201
