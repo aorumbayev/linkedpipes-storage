@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RDFNamespace | linkedpipes-storage</title>
+	<title>Privileges | linkedpipes-storage</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="rdfnamespace.html">RDFNamespace</a>
+					<a href="privileges.html">Privileges</a>
 				</li>
 			</ul>
-			<h1>Class RDFNamespace</h1>
+			<h1>Interface Privileges</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RDFNamespace</span>
+						<span class="target">Privileges</span>
 					</li>
 				</ul>
 			</section>
@@ -81,7 +81,8 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="rdfnamespace.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="privileges.html#agents" class="tsd-kind-icon">agents</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="privileges.html#modes" class="tsd-kind-icon">modes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,13 +90,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-					<a name="type" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;RDF(&#x27;type&#x27;)</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="agents" class="tsd-anchor"></a>
+					<h3>agents</h3>
+					<div class="tsd-signature tsd-kind-icon">agents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L125">lib/storage-manager.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L54">lib/storage-manager.ts:54</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="modes" class="tsd-anchor"></a>
+					<h3>modes</h3>
+					<div class="tsd-signature tsd-kind-icon">modes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L55">lib/storage-manager.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -113,11 +124,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-is-not-exported">
-						<a href="rdfnamespace.html" class="tsd-kind-icon">RDFNamespace</a>
+					<li class="current tsd-kind-interface tsd-is-not-exported">
+						<a href="privileges.html" class="tsd-kind-icon">Privileges</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-								<a href="rdfnamespace.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="privileges.html#agents" class="tsd-kind-icon">agents</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="privileges.html#modes" class="tsd-kind-icon">modes</a>
 							</li>
 						</ul>
 					</li>

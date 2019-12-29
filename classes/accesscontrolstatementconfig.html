@@ -93,8 +93,8 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#aclresourcenode" class="tsd-kind-icon">acl<wbr>Resource<wbr>Node</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#controlmodes" class="tsd-kind-icon">control<wbr>Modes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#ownernode" class="tsd-kind-icon">owner<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#privileges" class="tsd-kind-icon">privileges</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#resource" class="tsd-kind-icon">resource</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#resourcenode" class="tsd-kind-icon">resource<wbr>Node</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolstatementconfig.html#usernode" class="tsd-kind-icon">user<wbr>Node</a></li>
@@ -119,14 +119,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Access<wbr>Control<wbr>Statement<wbr>Config<span class="tsd-signature-symbol">(</span>resource<span class="tsd-signature-symbol">: </span><a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a>, controlModes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span>, ownerNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, resourceNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, aclResourceNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, userNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, webID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Access<wbr>Control<wbr>Statement<wbr>Config<span class="tsd-signature-symbol">(</span>resource<span class="tsd-signature-symbol">: </span><a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a>, privileges<span class="tsd-signature-symbol">: </span><a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span>, ownerNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, resourceNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, aclResourceNode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, userNode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">$rdf.NamedNode</span>, webID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accesscontrolstatementconfig.html" class="tsd-signature-type">AccessControlStatementConfig</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="accesscontrolconfig.html">AccessControlConfig</a>.<a href="accesscontrolconfig.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L84">lib/storage-manager.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L89">lib/storage-manager.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,7 +135,7 @@
 									<h5>resource: <a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a></h5>
 								</li>
 								<li>
-									<h5>controlModes: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>privileges: <a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5>ownerNode: <span class="tsd-signature-type">$rdf.NamedNode</span></h5>
@@ -166,18 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">acl<wbr>Resource<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">$rdf.NamedNode</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L84">lib/storage-manager.ts:84</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
-					<a name="controlmodes" class="tsd-anchor"></a>
-					<h3>control<wbr>Modes</h3>
-					<div class="tsd-signature tsd-kind-icon">control<wbr>Modes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="accesscontrolconfig.html">AccessControlConfig</a>.<a href="accesscontrolconfig.html#controlmodes">controlModes</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L54">lib/storage-manager.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L89">lib/storage-manager.ts:89</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +176,18 @@
 					<div class="tsd-signature tsd-kind-icon">owner<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">$rdf.NamedNode</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L81">lib/storage-manager.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L86">lib/storage-manager.ts:86</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+					<a name="privileges" class="tsd-anchor"></a>
+					<h3>privileges</h3>
+					<div class="tsd-signature tsd-kind-icon">privileges<span class="tsd-signature-symbol">:</span> <a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="accesscontrolconfig.html">AccessControlConfig</a>.<a href="accesscontrolconfig.html#privileges">privileges</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L59">lib/storage-manager.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +198,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#resource">resource</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L35">lib/storage-manager.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L35">lib/storage-manager.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">resource<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">$rdf.NamedNode</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L83">lib/storage-manager.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L88">lib/storage-manager.ts:88</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +218,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">$rdf.NamedNode</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L82">lib/storage-manager.ts:82</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L87">lib/storage-manager.ts:87</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -229,7 +229,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#webid">webID</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L34">lib/storage-manager.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L34">lib/storage-manager.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +247,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="accesscontrolconfig.html">AccessControlConfig</a>.<a href="accesscontrolconfig.html#fullaclpath">fullACLPath</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L65">lib/storage-manager.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L70">lib/storage-manager.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -265,7 +265,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="accesscontrolconfig.html">AccessControlConfig</a>.<a href="accesscontrolconfig.html#fullacltitle">fullACLTitle</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L73">lib/storage-manager.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L78">lib/storage-manager.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -283,7 +283,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#fullpath">fullPath</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L42">lib/storage-manager.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L42">lib/storage-manager.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -301,7 +301,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#fullpathwithappendix">fullPathWithAppendix</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L46">lib/storage-manager.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L46">lib/storage-manager.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -331,11 +331,11 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
 								<a href="accesscontrolstatementconfig.html#aclresourcenode" class="tsd-kind-icon">acl<wbr>Resource<wbr>Node</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
-								<a href="accesscontrolstatementconfig.html#controlmodes" class="tsd-kind-icon">control<wbr>Modes</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
 								<a href="accesscontrolstatementconfig.html#ownernode" class="tsd-kind-icon">owner<wbr>Node</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+								<a href="accesscontrolstatementconfig.html#privileges" class="tsd-kind-icon">privileges</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 								<a href="accesscontrolstatementconfig.html#resource" class="tsd-kind-icon">resource</a>

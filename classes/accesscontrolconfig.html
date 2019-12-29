@@ -97,7 +97,7 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolconfig.html#controlmodes" class="tsd-kind-icon">control<wbr>Modes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="accesscontrolconfig.html#privileges" class="tsd-kind-icon">privileges</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="accesscontrolconfig.html#resource" class="tsd-kind-icon">resource</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="accesscontrolconfig.html#webid" class="tsd-kind-icon">webID</a></li>
 							</ul>
@@ -120,14 +120,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Access<wbr>Control<wbr>Config<span class="tsd-signature-symbol">(</span>resource<span class="tsd-signature-symbol">: </span><a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a>, controlModes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span>, webID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Access<wbr>Control<wbr>Config<span class="tsd-signature-symbol">(</span>resource<span class="tsd-signature-symbol">: </span><a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a>, privileges<span class="tsd-signature-symbol">: </span><a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span>, webID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L54">lib/storage-manager.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L59">lib/storage-manager.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,7 +136,7 @@
 									<h5>resource: <a href="../interfaces/solidresource.html" class="tsd-signature-type">SolidResource</a></h5>
 								</li>
 								<li>
-									<h5>controlModes: <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>privileges: <a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> webID: <span class="tsd-signature-type">string</span></h5>
@@ -150,12 +150,12 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
-					<a name="controlmodes" class="tsd-anchor"></a>
-					<h3>control<wbr>Modes</h3>
-					<div class="tsd-signature tsd-kind-icon">control<wbr>Modes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReadonlyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">$rdf.NamedNode</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="privileges" class="tsd-anchor"></a>
+					<h3>privileges</h3>
+					<div class="tsd-signature tsd-kind-icon">privileges<span class="tsd-signature-symbol">:</span> <a href="../interfaces/privileges.html" class="tsd-signature-type">Privileges</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L54">lib/storage-manager.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L59">lib/storage-manager.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +166,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#resource">resource</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L35">lib/storage-manager.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L35">lib/storage-manager.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +177,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#webid">webID</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L34">lib/storage-manager.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L34">lib/storage-manager.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L65">lib/storage-manager.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L70">lib/storage-manager.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -211,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L73">lib/storage-manager.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L78">lib/storage-manager.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -229,7 +229,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#fullpath">fullPath</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L42">lib/storage-manager.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L42">lib/storage-manager.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -247,7 +247,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="resourceconfig.html">ResourceConfig</a>.<a href="resourceconfig.html#fullpathwithappendix">fullPathWithAppendix</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/12fb63c/src/lib/storage-manager.ts#L46">lib/storage-manager.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/9756eec/src/lib/storage-manager.ts#L46">lib/storage-manager.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -275,7 +275,7 @@
 								<a href="accesscontrolconfig.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
-								<a href="accesscontrolconfig.html#controlmodes" class="tsd-kind-icon">control<wbr>Modes</a>
+								<a href="accesscontrolconfig.html#privileges" class="tsd-kind-icon">privileges</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 								<a href="accesscontrolconfig.html#resource" class="tsd-kind-icon">resource</a>
