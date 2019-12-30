@@ -1,10 +1,10 @@
-import * as $rdf from 'rdflib';
 import {
   StorageAuthenticationManager,
   StorageTestAuthenticationManager
 } from './auth-manager';
 import { ENVIRONMENT } from './constants';
 import { AccessControlList } from './helpers';
+import { rdflib as $rdf } from './rdf-manager';
 // import { StorageRdfManager } from './rdf-manager';
 import * as Utils from './utils';
 

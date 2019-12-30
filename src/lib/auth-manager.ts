@@ -60,4 +60,8 @@ class TestAuthenticationManager {
 let StorageAuthenticationManager = AuthenticationManager.getInstance();
 let StorageTestAuthenticationManager = TestAuthenticationManager.getInstance();
 
-export { StorageAuthenticationManager, StorageTestAuthenticationManager };
+export {
+  solidAuthClient,
+  StorageAuthenticationManager,
+  StorageTestAuthenticationManager
+};
