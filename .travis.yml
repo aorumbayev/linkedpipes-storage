@@ -42,6 +42,8 @@ jobs:
         - git config --global user.name "Travis CI"
       script:
         - yarn prepare-release
+        - git remote add origin-pages https://${GH_TOKEN}@github.com/aorumbayev/linkedpipes-storage.git > /dev/null 2>&1
+        - git push --quiet --set-upstream origin-pages gh-pages
       after_success:
         - yarn cov:send
 
