@@ -1,22 +1,51 @@
+os: "linux"
 dist: bionic
-language: node_js
-node_js:
-  - "12"
-cache: yarn
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-  - export PATH="$HOME/.yarn/bin:$PATH"
-install:
-  - until yarn install --frozen-lockfile ; do echo 'Retrying yarn install' ; done
-script:
-  - yarn test
-after_success:
-  - yarn cov:send
+
+stages:
+  - name: tests
+    if: type = pull_request OR type = push AND branch != master
+  - name: deploy
+    if: type = push AND branch IN master
+
+jobs:
+  include:
+    - stage: tests
+      language: node_js
+      node_js:
+        - "12"
+      name: "Unit Tests"
+      cache:
+        yarn: true
+      before_install:
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+        - export PATH="$HOME/.yarn/bin:$PATH"
+      install:
+        - until yarn install --frozen-lockfile ; do echo 'Retrying yarn install' ; done
+      script:
+        - yarn test
+      after_success:
+        - yarn cov:send
+
+    - stage: deploy
+      language: node_js
+      node_js:
+        - "12"
+      name: "Deploy to NPM"
+      cache:
+        yarn: true
+      before_install:
+        - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+        - export PATH="$HOME/.yarn/bin:$PATH"
+      install:
+        - until yarn install --frozen-lockfile ; do echo 'Retrying yarn install' ; done
+      script:
+        - yarn prepare-release
+      after_success:
+        - yarn cov:send
+
 deploy:
   provider: npm
   email: aorumbayev@protonmail.com
-  script:
-    - yarn prepare-release
   api_key:
     secure: n2uH6rcA6Txwn12WYiu8iZXNL1/NBPinbUTxMY1yN55IC/U+IxqnbE45jxOR/vffxZC3Hx+KNLGM6d+tVnpmneClENBJ16IRkpLqgcrHUN9r/QV6ve8nrSERoqhQ7V/SaThM0hOQR1XOcuDxw6KNOn/SVAieKHD/BiTKmcPH5PbPmzVlz/GrZXUnSWhUyT9Yfd4ItGT5JaCcr9vxzHGHE4GgkLbSt3Ru0W7rebNBhDZM5x3Fr9luYQNoOLffqQQQWdnIXipZnRxQ85fsEBURlOTi3AGcgYvEVJEh52AfzQo8abKYbvwFro2bb4dyiBDtPeng4QicYV50M2vVdqc1dE5ueNvoU35oThxNeHBVfwuSCeA8zxP5BS+EkgqHhzJrnxovaHOk7NBoWDJ7idE3doGr1zWPPM/ORQl/96x2S4giFjYZxMYwGbTVZ1iFtjLrMLx31NAPblIWae5Rqm8uFUFPZI4lGU2cuxZxi4tAAu4imR+y04+5spBesc1EOPhm3+oDcMurd7wRLvpUjPdkglKhjWIo6kBDmfOeyTvj2T2J3B8iE4YSPTQyNv/0NtaOBKAK0IKkgqllQ71Ztw9q1OUQDd8vS61leLJ7XaMNAqKhp8yEEqCIE8e3b4URAH7xLczJsiKUMORX59ejZP0bXFYlyqZdHMd7VXpa3p+7ep0=
   on:
