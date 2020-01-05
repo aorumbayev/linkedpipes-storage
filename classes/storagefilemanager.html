@@ -66,6 +66,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>StorageFileManager class responsible for CRUD opearations and ACL files</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -85,7 +92,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyfiletofolder" class="tsd-kind-icon">copy<wbr>File<wbr>ToFolder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyfolder" class="tsd-kind-icon">copy<wbr>Folder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#copyresource" class="tsd-kind-icon">copy<wbr>Resource</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createacl" class="tsd-kind-icon">createACL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createorupdateresource" class="tsd-kind-icon">create<wbr>OrUpdate<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#createresource" class="tsd-kind-icon">create<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported"><a href="storagefilemanager.html#deletefoldercontents" class="tsd-kind-icon">delete<wbr>Folder<wbr>Contents</a></li>
@@ -114,16 +120,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L266">lib/storage-manager.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L317">lib/storage-manager.ts:317</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies resource from one path to another</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>originResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of original resource</p>
+									</div>
 								</li>
 								<li>
 									<h5>destinationResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of resource to be copied into</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -140,16 +157,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L303">lib/storage-manager.ts:303</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L359">lib/storage-manager.ts:359</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies individual resource into a folder</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>originResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of original path</p>
+									</div>
 								</li>
 								<li>
 									<h5>folderDestinationResource: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of destination folder</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -166,16 +194,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L322">lib/storage-manager.ts:322</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L383">lib/storage-manager.ts:383</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies folder from original to destination configuration</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>originConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Original configuration</p>
+									</div>
 								</li>
 								<li>
 									<h5>destinationConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Destination configuration</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -192,42 +231,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L355">lib/storage-manager.ts:355</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L421">lib/storage-manager.ts:421</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generic copy resource method</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Original resource</p>
+									</div>
 								</li>
 								<li>
 									<h5>destinationConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-					<a name="createacl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> createACL</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">createACL<span class="tsd-signature-symbol">(</span>resourceConfig<span class="tsd-signature-symbol">: </span><a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a>, aclBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L155">lib/storage-manager.ts:155</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>resourceConfig: <a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
-								</li>
-								<li>
-									<h5>aclBody: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Destination resource</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -244,13 +268,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L406">lib/storage-manager.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L485">lib/storage-manager.ts:485</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates or updates the resource configuration</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Resource configuration</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -267,13 +299,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L174">lib/storage-manager.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L207">lib/storage-manager.ts:207</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates solid resource based on configuration</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of resource to be created</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -290,13 +330,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L194">lib/storage-manager.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L231">lib/storage-manager.ts:231</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deletes folder contents</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of resource to be created</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -313,9 +361,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L453">lib/storage-manager.ts:453</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L543">lib/storage-manager.ts:543</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generic method triggering recursive folder content deletion</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -336,13 +389,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L225">lib/storage-manager.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L266">lib/storage-manager.ts:266</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generic resource deletion method</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of resource to be deleted</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -359,13 +420,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L430">lib/storage-manager.ts:430</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L517">lib/storage-manager.ts:517</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the folder and its content</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>folderConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration of the folder</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -382,16 +451,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L251">lib/storage-manager.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L297">lib/storage-manager.ts:297</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Method to load the resource at specific path</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path to resource</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Additional parameters for fetch request</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -408,16 +488,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L371">lib/storage-manager.ts:371</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L442">lib/storage-manager.ts:442</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates resource based on configuration</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>oldResourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Old resource</p>
+									</div>
 								</li>
 								<li>
 									<h5>newResourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New resource</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -434,13 +525,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L422">lib/storage-manager.ts:422</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L505">lib/storage-manager.ts:505</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if resource exist at particular path</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceURL: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Original resource url</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -457,13 +556,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L129">lib/storage-manager.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L177">lib/storage-manager.ts:177</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updated or creates the acl file based on provided configuration</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>accessControlConfig: <a href="accesscontrolconfig.html" class="tsd-signature-type">AccessControlConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>configuration desribing the acl to be updated</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -480,13 +587,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L390">lib/storage-manager.ts:390</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L465">lib/storage-manager.ts:465</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates resource</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceConfig: <a href="resourceconfig.html" class="tsd-signature-type">ResourceConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Original resource config</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -521,9 +636,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#copyresource" class="tsd-kind-icon">copy<wbr>Resource</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
-								<a href="storagefilemanager.html#createacl" class="tsd-kind-icon">createACL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-not-exported">
 								<a href="storagefilemanager.html#createorupdateresource" class="tsd-kind-icon">create<wbr>OrUpdate<wbr>Resource</a>

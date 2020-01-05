@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The RdfManager class encapsulating some LPA specific logic and general
+						rdflib library</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -119,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L18">lib/rdf-manager.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L23">lib/rdf-manager.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="rdfmanager.html" class="tsd-signature-type">RdfManager</a></h4>
@@ -135,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">fetcher<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">rdflib.Fetcher</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L15">lib/rdf-manager.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L20">lib/rdf-manager.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,7 +153,7 @@
 					<div class="tsd-signature tsd-kind-icon">requires<wbr>Force<wbr>Reload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L18">lib/rdf-manager.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L23">lib/rdf-manager.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">store<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L14">lib/rdf-manager.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L19">lib/rdf-manager.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">updater<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">rdflib.UpdateManager</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L16">lib/rdf-manager.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L21">lib/rdf-manager.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +183,7 @@
 					<div class="tsd-signature tsd-kind-icon">instance<span class="tsd-signature-symbol">:</span> <a href="rdfmanager.html" class="tsd-signature-type">RdfManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L13">lib/rdf-manager.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L18">lib/rdf-manager.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,13 +200,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L42">lib/rdf-manager.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L56">lib/rdf-manager.ts:56</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A method to load and parse an RDF lib into rdflib graph</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>document: <span class="tsd-signature-type">rdflib.NamedNode</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>NamedNode to load</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -215,16 +231,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L26">lib/rdf-manager.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L36">lib/rdf-manager.ts:36</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A method to update an current rdflib graph instance</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>deletions: <span class="tsd-signature-type">rdflib.Statement</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>rdflib statements to delete</p>
+									</div>
 								</li>
 								<li>
 									<h5>insertions: <span class="tsd-signature-type">rdflib.Statement</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>rdflib statements to insert</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -241,16 +268,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L70">lib/rdf-manager.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L96">lib/rdf-manager.ts:96</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Method sets reference to folder with linkedpipes applications
+									configurations for particlar webId</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>webId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>WebId of the user</p>
+									</div>
 								</li>
 								<li>
 									<h5>folderUrl: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path to the lpa folder in pod</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -267,19 +306,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L55">lib/rdf-manager.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L75">lib/rdf-manager.ts:75</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates rdf file</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>resourceUrl: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Resource to url</p>
+									</div>
 								</li>
 								<li>
 									<h5>insertions: <span class="tsd-signature-type">rdflib.Statement</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Rdflib insertions to perform</p>
+									</div>
 								</li>
 								<li>
 									<h5>deletions: <span class="tsd-signature-type">rdflib.Statement</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Rdflib deletions to perform</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -296,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L6">lib/rdf-manager.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L11">lib/rdf-manager.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="rdfmanager.html" class="tsd-signature-type">RdfManager</a></h4>

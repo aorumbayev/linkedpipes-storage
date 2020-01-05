@@ -78,8 +78,6 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/accesscontrolconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Config</a></li>
 								<li class="tsd-kind-class"><a href="classes/accesscontrollist.html" class="tsd-kind-icon">Access<wbr>Control<wbr>List</a></li>
-								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/accesscontrolnamespace.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Namespace</a></li>
-								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a></li>
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/authenticationmanager.html" class="tsd-kind-icon">Authentication<wbr>Manager</a></li>
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/foafnamespace.html" class="tsd-kind-icon">FOAFNamespace</a></li>
 								<li class="tsd-kind-class tsd-is-not-exported"><a href="classes/rdfnamespace.html" class="tsd-kind-icon">RDFNamespace</a></li>
@@ -101,7 +99,6 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#acl" class="tsd-kind-icon">ACL</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#environment" class="tsd-kind-icon">ENVIRONMENT</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#foaf" class="tsd-kind-icon">FOAF</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#lpa" class="tsd-kind-icon">LPA</a></li>
@@ -126,7 +123,6 @@
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#extractfolderitems" class="tsd-kind-icon">extract<wbr>Folder<wbr>Items</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#guessfiletype" class="tsd-kind-icon">guess<wbr>File<wbr>Type</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#isfolder" class="tsd-kind-icon">is<wbr>Folder</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#login" class="tsd-kind-icon">login</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#texttograph" class="tsd-kind-icon">text<wbr>ToGraph</a></li>
 							</ul>
 						</section>
@@ -149,22 +145,12 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
-					<a name="acl" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> ACL</h3>
-					<div class="tsd-signature tsd-kind-icon">ACL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;$rdf.Namespace(&#x27;http://www.w3.org/ns/auth/acl#&#x27;)</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L17">lib/storage-manager.ts:17</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="environment" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> ENVIRONMENT</h3>
 					<div class="tsd-signature tsd-kind-icon">ENVIRONMENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.ENVIRONMENT</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/constants.ts#L1">lib/constants.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/constants.ts#L2">lib/constants.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">FOAF<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;$rdf.Namespace(&#x27;http://xmlns.com/foaf/0.1/&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L16">lib/storage-manager.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L16">lib/storage-manager.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">LPA<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;rdflib.Namespace(&#x27;https://w3id.org/def/lpapps#&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L3">lib/rdf-manager.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L4">lib/rdf-manager.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">RDF<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;$rdf.Namespace(&#x27;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L15">lib/storage-manager.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L15">lib/storage-manager.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">SOLID_<wbr>PASSWORD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.SOLID_PASSWORD</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/constants.ts#L3">lib/constants.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/constants.ts#L4">lib/constants.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">SOLID_<wbr>PROVIDER_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.SOLID_PROVIDER_URL</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/constants.ts#L2">lib/constants.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/constants.ts#L3">lib/constants.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -224,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">SOLID_<wbr>USERNAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.SOLID_USERNAME</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/constants.ts#L4">lib/constants.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/constants.ts#L5">lib/constants.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">SOLID_<wbr>WEBID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;process.env.SOLID_WEBID</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/constants.ts#L5">lib/constants.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/constants.ts#L6">lib/constants.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">Storage<wbr>Authentication<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/authenticationmanager.html" class="tsd-signature-type">AuthenticationManager</a><span class="tsd-signature-symbol"> =&nbsp;AuthenticationManager.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/auth-manager.ts#L60">lib/auth-manager.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/auth-manager.ts#L86">lib/auth-manager.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -254,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">Storage<wbr>Rdf<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/rdfmanager.html" class="tsd-signature-type">RdfManager</a><span class="tsd-signature-symbol"> =&nbsp;RdfManager.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/rdf-manager.ts#L96">lib/rdf-manager.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/rdf-manager.ts#L122">lib/rdf-manager.ts:122</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +250,7 @@
 					<div class="tsd-signature tsd-kind-icon">Storage<wbr>Test<wbr>Authentication<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/testauthenticationmanager.html" class="tsd-signature-type">TestAuthenticationManager</a><span class="tsd-signature-symbol"> =&nbsp;TestAuthenticationManager.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/auth-manager.ts#L61">lib/auth-manager.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/auth-manager.ts#L87">lib/auth-manager.ts:87</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Client<span class="tsd-signature-symbol">:</span> <a href="classes/authenticationmanager.html" class="tsd-signature-type">AuthenticationManager</a><span class="tsd-signature-symbol"> | </span><a href="classes/testauthenticationmanager.html" class="tsd-signature-type">TestAuthenticationManager</a><span class="tsd-signature-symbol"> =&nbsp;ENVIRONMENT &#x3D;&#x3D;&#x3D; &#x27;TEST&#x27;? StorageTestAuthenticationManager: StorageAuthenticationManager</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/storage-manager.ts#L11">lib/storage-manager.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/storage-manager.ts#L11">lib/storage-manager.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -284,7 +270,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol"> =&nbsp;winston.createLogger({level: &#x27;info&#x27;,format: winston.format.json(),defaultMeta: { service: &#x27;user-service&#x27; },transports: [//// - Write to all logs with level &#x60;info&#x60; and below to &#x60;combined.log&#x60;// - Write all logs error (and below) to &#x60;error.log&#x60;.//new winston.transports.File({ filename: &#x27;error.log&#x27;, level: &#x27;error&#x27; }),new winston.transports.File({ filename: &#x27;combined.log&#x27; })]})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/common/logger.ts#L4">lib/common/logger.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/common/logger.ts#L4">lib/common/logger.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +280,7 @@
 					<div class="tsd-signature tsd-kind-icon">solid<span class="tsd-signature-symbol">:</span> <a href="classes/authenticationmanager.html" class="tsd-signature-type">AuthenticationManager</a><span class="tsd-signature-symbol"> | </span><a href="classes/testauthenticationmanager.html" class="tsd-signature-type">TestAuthenticationManager</a><span class="tsd-signature-symbol"> =&nbsp;ENVIRONMENT &#x3D;&#x3D;&#x3D; &#x27;TEST&#x27;? StorageTestAuthenticationManager: StorageAuthenticationManager</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/access-control-list.ts#L14">lib/helpers/access-control-list.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/access-control-list.ts#L14">lib/helpers/access-control-list.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -304,7 +290,7 @@
 					<div class="tsd-signature tsd-kind-icon">solid<wbr>Auth<wbr>Client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;solid-auth-client&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/auth-manager.ts#L1">lib/auth-manager.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/auth-manager.ts#L2">lib/auth-manager.ts:2</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -314,7 +300,7 @@
 					<div class="tsd-signature tsd-kind-icon">solid<wbr>Auth<wbr>ClientCLI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;solid-auth-cli&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/auth-manager.ts#L2">lib/auth-manager.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/auth-manager.ts#L3">lib/auth-manager.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -331,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/utils.ts#L87">lib/utils.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/utils.ts#L88">lib/utils.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -357,7 +343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/utils.ts#L5">lib/utils.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/utils.ts#L6">lib/utils.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -380,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/utils.ts#L68">lib/utils.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/utils.ts#L69">lib/utils.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -397,23 +383,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="login" class="tsd-anchor"></a>
-					<h3>login</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">login<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/test.ts#L82">lib/test.ts:82</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
 					<a name="texttograph" class="tsd-anchor"></a>
 					<h3>text<wbr>ToGraph</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
@@ -423,7 +392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/utils.ts#L53">lib/utils.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/utils.ts#L54">lib/utils.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -451,7 +420,7 @@
 					<div class="tsd-signature tsd-kind-icon">ACL_<wbr>PREFIXES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L9">lib/helpers/constants.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L9">lib/helpers/constants.ts:9</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -460,7 +429,7 @@
 						<div class="tsd-signature tsd-kind-icon">acl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/auth/acl#&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L10">lib/helpers/constants.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L10">lib/helpers/constants.ts:10</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -470,7 +439,7 @@
 						<div class="tsd-signature tsd-kind-icon">foaf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://xmlns.com/foaf/0.1/&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L11">lib/helpers/constants.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L11">lib/helpers/constants.ts:11</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -480,7 +449,7 @@
 						<div class="tsd-signature tsd-kind-icon">n<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/2006/vcard/ns#&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L12">lib/helpers/constants.ts:12</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L12">lib/helpers/constants.ts:12</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -490,7 +459,7 @@
 						<div class="tsd-signature tsd-kind-icon">rdf<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L13">lib/helpers/constants.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L13">lib/helpers/constants.ts:13</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -501,7 +470,7 @@
 					<div class="tsd-signature tsd-kind-icon">DATE_<wbr>FORMAT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L94">lib/helpers/constants.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L94">lib/helpers/constants.ts:94</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -510,7 +479,7 @@
 						<div class="tsd-signature tsd-kind-icon">DATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;yyyy-MM-dd&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L95">lib/helpers/constants.ts:95</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L95">lib/helpers/constants.ts:95</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -520,7 +489,7 @@
 						<div class="tsd-signature tsd-kind-icon">TIME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;kk:mm:ss&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L96">lib/helpers/constants.ts:96</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L96">lib/helpers/constants.ts:96</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -531,7 +500,7 @@
 					<div class="tsd-signature tsd-kind-icon">FORM_<wbr>MODEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L16">lib/helpers/constants.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L16">lib/helpers/constants.ts:16</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -540,7 +509,7 @@
 						<div class="tsd-signature tsd-kind-icon">MULTIPLE_<wbr>TYPE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#Multiple&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L17">lib/helpers/constants.ts:17</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L17">lib/helpers/constants.ts:17</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -551,7 +520,7 @@
 					<div class="tsd-signature tsd-kind-icon">Form<wbr>ModelUI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L48">lib/helpers/constants.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L48">lib/helpers/constants.ts:48</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -560,7 +529,7 @@
 						<div class="tsd-signature tsd-kind-icon">MAX_<wbr>DATETIME_<wbr>OFFSET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:maxdatetimeOffset&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L58">lib/helpers/constants.ts:58</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L58">lib/helpers/constants.ts:58</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -570,7 +539,7 @@
 						<div class="tsd-signature tsd-kind-icon">MAX_<wbr>DATE_<wbr>OFFSET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:maxdateOffset&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L56">lib/helpers/constants.ts:56</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L56">lib/helpers/constants.ts:56</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -580,7 +549,7 @@
 						<div class="tsd-signature tsd-kind-icon">MAX_<wbr>VALUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:maxValue&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L55">lib/helpers/constants.ts:55</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L55">lib/helpers/constants.ts:55</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -590,7 +559,7 @@
 						<div class="tsd-signature tsd-kind-icon">MIN_<wbr>DATETIME_<wbr>OFFSET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:mindatetimeOffset&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L59">lib/helpers/constants.ts:59</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L59">lib/helpers/constants.ts:59</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -600,7 +569,7 @@
 						<div class="tsd-signature tsd-kind-icon">MIN_<wbr>DATE_<wbr>OFFSET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:mindateOffset&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L57">lib/helpers/constants.ts:57</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L57">lib/helpers/constants.ts:57</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -610,7 +579,7 @@
 						<div class="tsd-signature tsd-kind-icon">MIN_<wbr>VALUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:minValue&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L54">lib/helpers/constants.ts:54</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L54">lib/helpers/constants.ts:54</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -620,7 +589,7 @@
 						<div class="tsd-signature tsd-kind-icon">RDF_<wbr>TYPE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;rdf:type&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L53">lib/helpers/constants.ts:53</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L53">lib/helpers/constants.ts:53</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -630,7 +599,7 @@
 						<div class="tsd-signature tsd-kind-icon">UI_<wbr>DEFAULT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:default&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L52">lib/helpers/constants.ts:52</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L52">lib/helpers/constants.ts:52</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -640,7 +609,7 @@
 						<div class="tsd-signature tsd-kind-icon">UI_<wbr>LABEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:label&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L50">lib/helpers/constants.ts:50</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L50">lib/helpers/constants.ts:50</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -650,7 +619,7 @@
 						<div class="tsd-signature tsd-kind-icon">UI_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:name&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L51">lib/helpers/constants.ts:51</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L51">lib/helpers/constants.ts:51</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -660,7 +629,7 @@
 						<div class="tsd-signature tsd-kind-icon">UI_<wbr>VALUE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;ui:value&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L49">lib/helpers/constants.ts:49</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L49">lib/helpers/constants.ts:49</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -671,7 +640,7 @@
 					<div class="tsd-signature tsd-kind-icon">Input<wbr>Text<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L39">lib/helpers/constants.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L39">lib/helpers/constants.ts:39</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -680,7 +649,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Decimal<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;number&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L43">lib/helpers/constants.ts:43</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L43">lib/helpers/constants.ts:43</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -690,7 +659,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Email<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;email&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L41">lib/helpers/constants.ts:41</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L41">lib/helpers/constants.ts:41</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -700,7 +669,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Float<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;number&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L44">lib/helpers/constants.ts:44</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L44">lib/helpers/constants.ts:44</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -710,7 +679,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Integer<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;number&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L45">lib/helpers/constants.ts:45</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L45">lib/helpers/constants.ts:45</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -720,7 +689,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Phone<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;phone&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L42">lib/helpers/constants.ts:42</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L42">lib/helpers/constants.ts:42</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -730,7 +699,7 @@
 						<div class="tsd-signature tsd-kind-icon">http://www.w3.org/ns/ui#<wbr>Single<wbr>Line<wbr>Text<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;text&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L40">lib/helpers/constants.ts:40</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L40">lib/helpers/constants.ts:40</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -741,7 +710,7 @@
 					<div class="tsd-signature tsd-kind-icon">Notification<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L62">lib/helpers/constants.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L62">lib/helpers/constants.ts:62</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -750,7 +719,7 @@
 						<div class="tsd-signature tsd-kind-icon">ACCEPT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Accept&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L63">lib/helpers/constants.ts:63</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L63">lib/helpers/constants.ts:63</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -760,7 +729,7 @@
 						<div class="tsd-signature tsd-kind-icon">ADD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L64">lib/helpers/constants.ts:64</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L64">lib/helpers/constants.ts:64</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -770,7 +739,7 @@
 						<div class="tsd-signature tsd-kind-icon">ANNOUNCE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Announce&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L65">lib/helpers/constants.ts:65</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L65">lib/helpers/constants.ts:65</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -780,7 +749,7 @@
 						<div class="tsd-signature tsd-kind-icon">ARRIVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Arrive&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L66">lib/helpers/constants.ts:66</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L66">lib/helpers/constants.ts:66</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -790,7 +759,7 @@
 						<div class="tsd-signature tsd-kind-icon">BLOCK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Block&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L67">lib/helpers/constants.ts:67</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L67">lib/helpers/constants.ts:67</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -800,7 +769,7 @@
 						<div class="tsd-signature tsd-kind-icon">CREATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Create&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L68">lib/helpers/constants.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L68">lib/helpers/constants.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -810,7 +779,7 @@
 						<div class="tsd-signature tsd-kind-icon">DELETE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Delete&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L69">lib/helpers/constants.ts:69</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L69">lib/helpers/constants.ts:69</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -820,7 +789,7 @@
 						<div class="tsd-signature tsd-kind-icon">DISLIKE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Dislike&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L70">lib/helpers/constants.ts:70</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L70">lib/helpers/constants.ts:70</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -830,7 +799,7 @@
 						<div class="tsd-signature tsd-kind-icon">FLAG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Flag&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L71">lib/helpers/constants.ts:71</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L71">lib/helpers/constants.ts:71</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -840,7 +809,7 @@
 						<div class="tsd-signature tsd-kind-icon">FOLLOW<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Follow&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L72">lib/helpers/constants.ts:72</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L72">lib/helpers/constants.ts:72</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -850,7 +819,7 @@
 						<div class="tsd-signature tsd-kind-icon">IGNORE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Ignore&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L73">lib/helpers/constants.ts:73</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L73">lib/helpers/constants.ts:73</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -860,7 +829,7 @@
 						<div class="tsd-signature tsd-kind-icon">INVITE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Invite&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L74">lib/helpers/constants.ts:74</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L74">lib/helpers/constants.ts:74</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -870,7 +839,7 @@
 						<div class="tsd-signature tsd-kind-icon">JOIN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Join&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L75">lib/helpers/constants.ts:75</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L75">lib/helpers/constants.ts:75</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -880,7 +849,7 @@
 						<div class="tsd-signature tsd-kind-icon">LEAVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Leave&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L76">lib/helpers/constants.ts:76</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L76">lib/helpers/constants.ts:76</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -890,7 +859,7 @@
 						<div class="tsd-signature tsd-kind-icon">LIKE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Like&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L77">lib/helpers/constants.ts:77</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L77">lib/helpers/constants.ts:77</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -900,7 +869,7 @@
 						<div class="tsd-signature tsd-kind-icon">LISTEN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Listen&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L78">lib/helpers/constants.ts:78</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L78">lib/helpers/constants.ts:78</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -910,7 +879,7 @@
 						<div class="tsd-signature tsd-kind-icon">MOVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Move&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L79">lib/helpers/constants.ts:79</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L79">lib/helpers/constants.ts:79</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -920,7 +889,7 @@
 						<div class="tsd-signature tsd-kind-icon">OFFER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Offer&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L80">lib/helpers/constants.ts:80</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L80">lib/helpers/constants.ts:80</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -930,7 +899,7 @@
 						<div class="tsd-signature tsd-kind-icon">QUESTION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Question&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L83">lib/helpers/constants.ts:83</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L83">lib/helpers/constants.ts:83</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -940,7 +909,7 @@
 						<div class="tsd-signature tsd-kind-icon">READ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Read&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L81">lib/helpers/constants.ts:81</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L81">lib/helpers/constants.ts:81</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -950,7 +919,7 @@
 						<div class="tsd-signature tsd-kind-icon">REJECT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Reject&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L82">lib/helpers/constants.ts:82</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L82">lib/helpers/constants.ts:82</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -960,7 +929,7 @@
 						<div class="tsd-signature tsd-kind-icon">REMOVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Remove&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L87">lib/helpers/constants.ts:87</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L87">lib/helpers/constants.ts:87</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -970,7 +939,7 @@
 						<div class="tsd-signature tsd-kind-icon">TENTATIVEACCEPT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#TentativeAccept&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L84">lib/helpers/constants.ts:84</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L84">lib/helpers/constants.ts:84</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -980,7 +949,7 @@
 						<div class="tsd-signature tsd-kind-icon">TENTATIVEREJECT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#TentativeReject&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L85">lib/helpers/constants.ts:85</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L85">lib/helpers/constants.ts:85</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -990,7 +959,7 @@
 						<div class="tsd-signature tsd-kind-icon">TRAVEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Travel&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L86">lib/helpers/constants.ts:86</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L86">lib/helpers/constants.ts:86</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1000,7 +969,7 @@
 						<div class="tsd-signature tsd-kind-icon">UNDO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Undo&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L88">lib/helpers/constants.ts:88</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L88">lib/helpers/constants.ts:88</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1010,7 +979,7 @@
 						<div class="tsd-signature tsd-kind-icon">UPDATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#Update&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L89">lib/helpers/constants.ts:89</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L89">lib/helpers/constants.ts:89</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1020,7 +989,7 @@
 						<div class="tsd-signature tsd-kind-icon">VIEW<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;https://www.w3.org/ns/activitystreams#View&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L90">lib/helpers/constants.ts:90</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L90">lib/helpers/constants.ts:90</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1031,7 +1000,7 @@
 					<div class="tsd-signature tsd-kind-icon">PERMISSIONS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L2">lib/helpers/constants.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L2">lib/helpers/constants.ts:2</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1040,7 +1009,7 @@
 						<div class="tsd-signature tsd-kind-icon">APPEND<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Append&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L3">lib/helpers/constants.ts:3</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L3">lib/helpers/constants.ts:3</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1050,7 +1019,7 @@
 						<div class="tsd-signature tsd-kind-icon">CONTROL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Control&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L6">lib/helpers/constants.ts:6</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L6">lib/helpers/constants.ts:6</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1060,7 +1029,7 @@
 						<div class="tsd-signature tsd-kind-icon">READ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Read&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L4">lib/helpers/constants.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L4">lib/helpers/constants.ts:4</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1070,7 +1039,7 @@
 						<div class="tsd-signature tsd-kind-icon">WRITE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Write&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L5">lib/helpers/constants.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L5">lib/helpers/constants.ts:5</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1081,7 +1050,7 @@
 					<div class="tsd-signature tsd-kind-icon">UITypes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L20">lib/helpers/constants.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L20">lib/helpers/constants.ts:20</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1090,7 +1059,7 @@
 						<div class="tsd-signature tsd-kind-icon">Boolean<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#BooleanField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L28">lib/helpers/constants.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L28">lib/helpers/constants.ts:28</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1100,7 +1069,7 @@
 						<div class="tsd-signature tsd-kind-icon">Classifier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#Classifier&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L34">lib/helpers/constants.ts:34</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L34">lib/helpers/constants.ts:34</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1110,7 +1079,7 @@
 						<div class="tsd-signature tsd-kind-icon">Color<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#ColorField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L30">lib/helpers/constants.ts:30</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L30">lib/helpers/constants.ts:30</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1120,7 +1089,7 @@
 						<div class="tsd-signature tsd-kind-icon">Comment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#Comment&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L36">lib/helpers/constants.ts:36</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L36">lib/helpers/constants.ts:36</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1130,7 +1099,7 @@
 						<div class="tsd-signature tsd-kind-icon">Date<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#DateField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L31">lib/helpers/constants.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L31">lib/helpers/constants.ts:31</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1140,7 +1109,7 @@
 						<div class="tsd-signature tsd-kind-icon">Date<wbr>Time<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#DateTimeField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L32">lib/helpers/constants.ts:32</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L32">lib/helpers/constants.ts:32</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1150,7 +1119,7 @@
 						<div class="tsd-signature tsd-kind-icon">Decimal<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#DecimalField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L23">lib/helpers/constants.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L23">lib/helpers/constants.ts:23</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1160,7 +1129,7 @@
 						<div class="tsd-signature tsd-kind-icon">Email<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#EmailField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L26">lib/helpers/constants.ts:26</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L26">lib/helpers/constants.ts:26</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1170,7 +1139,7 @@
 						<div class="tsd-signature tsd-kind-icon">Float<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#FloatField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L24">lib/helpers/constants.ts:24</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L24">lib/helpers/constants.ts:24</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1180,7 +1149,7 @@
 						<div class="tsd-signature tsd-kind-icon">Heading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#Heading&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L35">lib/helpers/constants.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L35">lib/helpers/constants.ts:35</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1190,7 +1159,7 @@
 						<div class="tsd-signature tsd-kind-icon">Integer<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#IntegerField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L25">lib/helpers/constants.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L25">lib/helpers/constants.ts:25</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1200,7 +1169,7 @@
 						<div class="tsd-signature tsd-kind-icon">Multi<wbr>Line<wbr>Text<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#MultiLineTextField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L22">lib/helpers/constants.ts:22</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L22">lib/helpers/constants.ts:22</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1210,7 +1179,7 @@
 						<div class="tsd-signature tsd-kind-icon">Phone<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#PhoneField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L27">lib/helpers/constants.ts:27</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L27">lib/helpers/constants.ts:27</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1220,7 +1189,7 @@
 						<div class="tsd-signature tsd-kind-icon">Single<wbr>Line<wbr>Text<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#SingleLineTextField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L21">lib/helpers/constants.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L21">lib/helpers/constants.ts:21</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1230,7 +1199,7 @@
 						<div class="tsd-signature tsd-kind-icon">Time<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#TimeField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L33">lib/helpers/constants.ts:33</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L33">lib/helpers/constants.ts:33</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1240,7 +1209,7 @@
 						<div class="tsd-signature tsd-kind-icon">Tri<wbr>State<wbr>Field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;http://www.w3.org/ns/ui#TriStateField&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/c50a8f7/src/lib/helpers/constants.ts#L29">lib/helpers/constants.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/aorumbayev/linkedpipes-storage/blob/fa18e2c/src/lib/helpers/constants.ts#L29">lib/helpers/constants.ts:29</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1265,12 +1234,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/accesscontrollist.html" class="tsd-kind-icon">Access<wbr>Control<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="classes/accesscontrolnamespace.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Namespace</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="classes/accesscontrolstatementconfig.html" class="tsd-kind-icon">Access<wbr>Control<wbr>Statement<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/authenticationmanager.html" class="tsd-kind-icon">Authentication<wbr>Manager</a>
@@ -1304,9 +1267,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/solidresource.html" class="tsd-kind-icon">Solid<wbr>Resource</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#acl" class="tsd-kind-icon">ACL</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#environment" class="tsd-kind-icon">ENVIRONMENT</a>
@@ -1364,9 +1324,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#isfolder" class="tsd-kind-icon">is<wbr>Folder</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#login" class="tsd-kind-icon">login</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#texttograph" class="tsd-kind-icon">text<wbr>ToGraph</a>
