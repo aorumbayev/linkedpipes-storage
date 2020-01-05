@@ -1,19 +1,19 @@
-os: "linux"
+os: 'linux'
 dist: bionic
 
 stages:
   - name: tests
-    if: type = pull_request OR type = push AND branch != master
+    if: type = pull_request OR type = push
   - name: deploy
-    if: type = push AND branch IN master
+    if: type = push AND branch = master
 
 jobs:
   include:
     - stage: tests
       language: node_js
       node_js:
-        - "12"
-      name: "Unit Tests"
+        - '12'
+      name: 'Unit Tests'
       cache:
         yarn: true
       before_install:
@@ -29,8 +29,8 @@ jobs:
     - stage: deploy
       language: node_js
       node_js:
-        - "12"
-      name: "Deploy to NPM"
+        - '12'
+      name: 'Deploy to NPM'
       cache:
         yarn: true
       before_install:
