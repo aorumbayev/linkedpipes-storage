@@ -1,7 +1,12 @@
+/* istanbul ignore file */
 import * as rdflib from 'rdflib';
 
 const LPA = rdflib.Namespace('https://w3id.org/def/lpapps#');
 /* tslint:disable */
+/**
+ * The RdfManager class encapsulating some LPA specific logic and general
+ * rdflib library
+ */
 class RdfManager {
   static getInstance() {
     if (!RdfManager.instance) {
@@ -23,6 +28,11 @@ class RdfManager {
     this.updater = new rdflib.UpdateManager(this.store);
   }
 
+  /**
+   * A method to update an current rdflib graph instance
+   * @param deletions rdflib statements to delete
+   * @param insertions rdflib statements to insert
+   */
   public async update(
     deletions: rdflib.Statement[],
     insertions: rdflib.Statement[]
@@ -39,6 +49,10 @@ class RdfManager {
     }
   }
 
+  /**
+   * A method to load and parse an RDF lib into rdflib graph
+   * @param document NamedNode to load
+   */
   public async load(document: rdflib.NamedNode): Promise<any> {
     const reloadRequired = this.requiresForceReload;
     this.requiresForceReload = false;
@@ -52,6 +66,12 @@ class RdfManager {
     }
   }
 
+  /**
+   * Updates rdf file
+   * @param resourceUrl Resource to url
+   * @param insertions Rdflib insertions to perform
+   * @param deletions Rdflib deletions to perform
+   */
   public async updateResource(
     resourceUrl: string,
     insertions: rdflib.Statement[],
@@ -67,6 +87,12 @@ class RdfManager {
     }
   }
 
+  /**
+   * Method sets reference to folder with linkedpipes applications
+   * configurations for particlar webId
+   * @param webId WebId of the user
+   * @param folderUrl Path to the lpa folder in pod
+   */
   public async updateAppFolder(
     webId: string,
     folderUrl: string

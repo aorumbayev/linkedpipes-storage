@@ -16,11 +16,17 @@ const RDF = $rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/');
 const ACL = $rdf.Namespace('http://www.w3.org/ns/auth/acl#');
 
+/**
+ * Enum representing different solid resource types
+ */
 enum SolidResourceType {
   Folder = '<http://www.w3.org/ns/ldp#BasicContainer>; rel="type"',
   File = '<http://www.w3.org/ns/ldp#Resource>; rel="type"'
 }
 
+/**
+ * Interface representing the SolidResource
+ */
 interface SolidResource {
   readonly type: SolidResourceType;
   readonly path: string;
@@ -30,6 +36,9 @@ interface SolidResource {
   readonly isPublic?: boolean;
 }
 
+/**
+ * Class representing the solid resoruce configuration description
+ */
 class ResourceConfig {
   public readonly webID?: string;
   public readonly resource: SolidResource;
@@ -39,10 +48,16 @@ class ResourceConfig {
     this.resource = resource;
   }
 
+  /**
+   * Assembles the full path to resource based on path and title
+   */
   public fullPath(): string {
     return this.resource.path + '/' + this.resource.title;
   }
 
+  /**
+   * Assembles the full path and appends the appendix if resource is a folder
+   */
   public fullPathWithAppendix(): string {
     const folderAppendix =
       this.resource.type === SolidResourceType.Folder ? '/' : '';
@@ -50,11 +65,17 @@ class ResourceConfig {
   }
 }
 
+/**
+ * Interface representing Privileges of the resource
+ */
 interface Privileges {
   agents: null | string[];
   modes: string[];
 }
 
+/**
+ * Subclass of ResourceConfig for ACL files
+ */
 class AccessControlConfig extends ResourceConfig {
   public readonly privileges: Privileges[];
 
@@ -67,6 +88,9 @@ class AccessControlConfig extends ResourceConfig {
     this.privileges = privileges;
   }
 
+  /**
+   * Assembles full path to acl file
+   */
   public fullACLPath(): string {
     const aclAppendix =
       this.resource.type === SolidResourceType.Folder ? '/' : '';
@@ -75,6 +99,9 @@ class AccessControlConfig extends ResourceConfig {
     );
   }
 
+  /**
+   * Assembles full title acl resource
+   */
   public fullACLTitle(): string {
     const aclAppendix =
       this.resource.type === SolidResourceType.Folder ? '/' : '';
@@ -82,50 +109,72 @@ class AccessControlConfig extends ResourceConfig {
   }
 }
 
-class AccessControlStatementConfig extends AccessControlConfig {
-  public readonly ownerNode: $rdf.NamedNode;
-  public readonly userNode?: $rdf.NamedNode;
-  public readonly resourceNode: $rdf.NamedNode;
-  public readonly aclResourceNode: $rdf.NamedNode;
-  constructor(
-    resource: SolidResource,
-    privileges: Privileges[],
-    ownerNode: $rdf.NamedNode,
-    resourceNode: $rdf.NamedNode,
-    aclResourceNode: $rdf.NamedNode,
-    userNode?: $rdf.NamedNode,
-    webID?: string
-  ) {
-    super(resource, privileges, webID);
-    this.ownerNode = ownerNode;
-    this.resourceNode = resourceNode;
-    this.aclResourceNode = aclResourceNode;
-    this.userNode = userNode;
-  }
-}
+// LEGACY CODE for v4 NSS editions, was replaced by implementation from
+// inrupt solid react components package for v5 NSS releases.
+// ======================================================
+//
 
-class AccessControlNamespace {
-  public static readonly Control = ACL('Control');
-  public static readonly Read = ACL('Read');
-  public static readonly Write = ACL('Write');
-  public static readonly Append = ACL('Append');
-  public static readonly Authorization = ACL('Authorization');
-  public static readonly accessTo = ACL('accessTo');
-  public static readonly agent = ACL('agent');
-  public static readonly agentClass = ACL('agentClass');
-  public static readonly mode = ACL('mode');
-  public static readonly defaultForNew = ACL('default');
-}
+// class AccessControlStatementConfig extends AccessControlConfig {
+//   public readonly ownerNode: $rdf.NamedNode;
+//   public readonly userNode?: $rdf.NamedNode;
+//   public readonly resourceNode: $rdf.NamedNode;
+//   public readonly aclResourceNode: $rdf.NamedNode;
+//   constructor(
+//     resource: SolidResource,
+//     privileges: Privileges[],
+//     ownerNode: $rdf.NamedNode,
+//     resourceNode: $rdf.NamedNode,
+//     aclResourceNode: $rdf.NamedNode,
+//     userNode?: $rdf.NamedNode,
+//     webID?: string
+//   ) {
+//     super(resource, privileges, webID);
+//     this.ownerNode = ownerNode;
+//     this.resourceNode = resourceNode;
+//     this.aclResourceNode = aclResourceNode;
+//     this.userNode = userNode;
+//   }
+// }
 
+// class AccessControlNamespace {
+//   public static readonly Control = ACL('Control');
+//   public static readonly Read = ACL('Read');
+//   public static readonly Write = ACL('Write');
+//   public static readonly Append = ACL('Append');
+//   public static readonly Authorization = ACL('Authorization');
+//   public static readonly accessTo = ACL('accessTo');
+//   public static readonly agent = ACL('agent');
+//   public static readonly agentClass = ACL('agentClass');
+//   public static readonly mode = ACL('mode');
+//   public static readonly defaultForNew = ACL('default');
+// }
+
+// END OF LEGACY CODE
+// ======================================================
+//
+
+/**
+ * FOAF namespace helper class
+ */
 class FOAFNamespace {
   public static readonly Agent = FOAF('Agent');
 }
 
+/**
+ * RDF namespace helper class
+ */
 class RDFNamespace {
   public static readonly type = RDF('type');
 }
 
+/**
+ * StorageFileManager class responsible for CRUD opearations and ACL files
+ */
 class StorageFileManager {
+  /**
+   * Updated or creates the acl file based on provided configuration
+   * @param accessControlConfig configuration desribing the acl to be updated
+   */
   public static async updateACL(
     accessControlConfig: AccessControlConfig
   ): Promise<any> {
@@ -152,25 +201,10 @@ class StorageFileManager {
     }
   }
 
-  public static async createACL(
-    resourceConfig: AccessControlConfig,
-    aclBody: string
-  ): Promise<any> {
-    try {
-      const options = {
-        body: aclBody,
-        headers: {
-          'Content-Type': resourceConfig.resource.contentType || 'text/turtle'
-        },
-        method: 'PUT'
-      };
-
-      return await authClient.fetch(resourceConfig.fullACLPath(), options);
-    } catch (e) {
-      throw e;
-    }
-  }
-
+  /**
+   * Creates solid resource based on configuration
+   * @param resourceConfig Configuration of resource to be created
+   */
   public static async createResource(
     resourceConfig: ResourceConfig
   ): Promise<any> {
@@ -191,6 +225,10 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Deletes folder contents
+   * @param resourceConfig Configuration of resource to be created
+   */
   public static async deleteFolderContents(
     resourceConfig: ResourceConfig
   ): Promise<any> {
@@ -222,6 +260,10 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Generic resource deletion method
+   * @param resourceConfig Configuration of resource to be deleted
+   */
   public static async deleteResource(
     resourceConfig: ResourceConfig
   ): Promise<any> {
@@ -248,6 +290,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Method to load the resource at specific path
+   * @param path Path to resource
+   * @param parameters Additional parameters for fetch request
+   */
   public static async getResource(
     path: string,
     parameters?: object
@@ -263,6 +310,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Copies resource from one path to another
+   * @param originResource Configuration of original resource
+   * @param destinationResource Configuration of resource to be copied into
+   */
   public static async copyFile(
     originResource: ResourceConfig,
     destinationResource: ResourceConfig
@@ -300,6 +352,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Copies individual resource into a folder
+   * @param originResource Configuration of original path
+   * @param folderDestinationResource Configuration of destination folder
+   */
   public static async copyFileToFolder(
     originResource: ResourceConfig,
     folderDestinationResource: ResourceConfig
@@ -319,6 +376,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Copies folder from original to destination configuration
+   * @param originConfig Original configuration
+   * @param destinationConfig Destination configuration
+   */
   public static async copyFolder(
     originConfig: ResourceConfig,
     destinationConfig: ResourceConfig
@@ -352,6 +414,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Generic copy resource method
+   * @param resourceConfig Original resource
+   * @param destinationConfig Destination resource
+   */
   public static async copyResource(
     resourceConfig: ResourceConfig,
     destinationConfig: ResourceConfig
@@ -368,6 +435,11 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Updates resource based on configuration
+   * @param oldResourceConfig Old resource
+   * @param newResourceConfig New resource
+   */
   public static async renameResource(
     oldResourceConfig: ResourceConfig,
     newResourceConfig: ResourceConfig
@@ -387,6 +459,10 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Updates resource
+   * @param resourceConfig Original resource config
+   */
   public static async updateResource(
     resourceConfig: ResourceConfig
   ): Promise<any> {
@@ -403,6 +479,10 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Creates or updates the resource configuration
+   * @param resourceConfig Resource configuration
+   */
   public static async createOrUpdateResource(
     resourceConfig: ResourceConfig
   ): Promise<any> {
@@ -419,6 +499,10 @@ class StorageFileManager {
     }
   }
 
+  /**
+   * Checks if resource exist at particular path
+   * @param resourceURL Original resource url
+   */
   public static async resourceExists(resourceURL: string): Promise<any> {
     return authClient.fetch(resourceURL, {
       headers: {
@@ -427,6 +511,10 @@ class StorageFileManager {
     });
   }
 
+  /**
+   * Returns the folder and its content
+   * @param folderConfig Configuration of the folder
+   */
   public static async getFolder(
     folderConfig: ResourceConfig
   ): Promise<{
@@ -450,6 +538,9 @@ class StorageFileManager {
     return folderItems;
   }
 
+  /**
+   * Generic method triggering recursive folder content deletion
+   */
   public static readonly deleteFolderRecursively = async resourceConfig => {
     await StorageFileManager.deleteFolderContents(resourceConfig);
     return StorageFileManager.deleteResource(resourceConfig);
@@ -461,8 +552,6 @@ export {
   SolidResource,
   AccessControlConfig,
   ResourceConfig,
-  AccessControlStatementConfig,
-  AccessControlNamespace,
   FOAFNamespace,
   RDFNamespace,
   StorageFileManager
