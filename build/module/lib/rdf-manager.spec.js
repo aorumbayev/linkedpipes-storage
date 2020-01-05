@@ -1,0 +1,54 @@
+import test from 'ava';
+import psl from 'psl';
+import uuid from 'uuid';
+import { StorageTestAuthenticationManager } from './auth-manager';
+import { logger } from './common';
+import { SOLID_PASSWORD, SOLID_PROVIDER_URL, SOLID_USERNAME, SOLID_WEBID } from './constants';
+import { StorageRdfManager } from './rdf-manager';
+import { ResourceConfig, SolidResourceType, StorageFileManager } from './storage-manager';
+// tslint:disable
+let session;
+function extractHostname(url) {
+    var hostname;
+    //find & remove protocol (http, ftp, etc.) and get hostname
+    if (url.indexOf('//') > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+    //find & remove port number
+    hostname = hostname.split(':')[0];
+    //find & remove "?"
+    hostname = hostname.split('?')[0];
+    return hostname;
+}
+const folderConfigurationResource = new ResourceConfig({
+    path: 'https://' +
+        SOLID_USERNAME.toLowerCase() +
+        '.' +
+        psl.get(extractHostname(SOLID_PROVIDER_URL)),
+    title: uuid.v4(),
+    type: SolidResourceType.Folder
+}, SOLID_WEBID);
+test.before(async () => {
+    session = await StorageTestAuthenticationManager.currentSession();
+    if (!session) {
+        session = await StorageTestAuthenticationManager.login({
+            idp: SOLID_PROVIDER_URL,
+            password: SOLID_PASSWORD,
+            username: SOLID_USERNAME
+        });
+        logger.info('Authentication response: ', session.webID);
+    }
+    await StorageFileManager.createResource(folderConfigurationResource);
+});
+test.serial('testUpdateAppFolder', async (t) => {
+    await StorageRdfManager.updateAppFolder(SOLID_WEBID, folderConfigurationResource.fullPath());
+    const fileContent = await StorageFileManager.getResource(SOLID_WEBID, undefined);
+    t.assert(fileContent.includes('lpStorage'));
+});
+test.after(async () => {
+    await StorageFileManager.deleteResource(folderConfigurationResource);
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmRmLW1hbmFnZXIuc3BlYy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9saWIvcmRmLW1hbmFnZXIuc3BlYy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLElBQUksTUFBTSxLQUFLLENBQUM7QUFDdkIsT0FBTyxHQUFHLE1BQU0sS0FBSyxDQUFDO0FBQ3RCLE9BQU8sSUFBSSxNQUFNLE1BQU0sQ0FBQztBQUN4QixPQUFPLEVBQUUsZ0NBQWdDLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQztBQUNsRSxPQUFPLEVBQUUsTUFBTSxFQUFFLE1BQU0sVUFBVSxDQUFDO0FBQ2xDLE9BQU8sRUFDTCxjQUFjLEVBQ2Qsa0JBQWtCLEVBQ2xCLGNBQWMsRUFDZCxXQUFXLEVBQ1osTUFBTSxhQUFhLENBQUM7QUFDckIsT0FBTyxFQUFFLGlCQUFpQixFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ2xELE9BQU8sRUFDTCxjQUFjLEVBQ2QsaUJBQWlCLEVBQ2pCLGtCQUFrQixFQUNuQixNQUFNLG1CQUFtQixDQUFDO0FBRTNCLGlCQUFpQjtBQUVqQixJQUFJLE9BQU8sQ0FBQztBQUVaLFNBQVMsZUFBZSxDQUFDLEdBQUc7SUFDMUIsSUFBSSxRQUFRLENBQUM7SUFDYiwyREFBMkQ7SUFFM0QsSUFBSSxHQUFHLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxFQUFFO1FBQzFCLFFBQVEsR0FBRyxHQUFHLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO0tBQzlCO1NBQU07UUFDTCxRQUFRLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztLQUM5QjtJQUVELDJCQUEyQjtJQUMzQixRQUFRLEdBQUcsUUFBUSxDQUFDLEtBQUssQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNsQyxtQkFBbUI7SUFDbkIsUUFBUSxHQUFHLFFBQVEsQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFFbEMsT0FBTyxRQUFRLENBQUM7QUFDbEIsQ0FBQztBQUVELE1BQU0sMkJBQTJCLEdBQW1CLElBQUksY0FBYyxDQUNwRTtJQUNFLElBQUksRUFDRixVQUFVO1FBQ1YsY0FBYyxDQUFDLFdBQVcsRUFBRTtRQUM1QixHQUFHO1FBQ0gsR0FBRyxDQUFDLEdBQUcsQ0FBQyxlQUFlLENBQUMsa0JBQWtCLENBQUMsQ0FBQztJQUM5QyxLQUFLLEVBQUUsSUFBSSxDQUFDLEVBQUUsRUFBRTtJQUNoQixJQUFJLEVBQUUsaUJBQWlCLENBQUMsTUFBTTtDQUMvQixFQUNELFdBQVcsQ0FDWixDQUFDO0FBRUYsSUFBSSxDQUFDLE1BQU0sQ0FBQyxLQUFLLElBQUksRUFBRTtJQUNyQixPQUFPLEdBQUcsTUFBTSxnQ0FBZ0MsQ0FBQyxjQUFjLEVBQUUsQ0FBQztJQUNsRSxJQUFJLENBQUMsT0FBTyxFQUFFO1FBQ1osT0FBTyxHQUFHLE1BQU0sZ0NBQWdDLENBQUMsS0FBSyxDQUFDO1lBQ3JELEdBQUcsRUFBRSxrQkFBa0I7WUFDdkIsUUFBUSxFQUFFLGNBQWM7WUFDeEIsUUFBUSxFQUFFLGNBQWM7U0FDekIsQ0FBQyxDQUFDO1FBQ0gsTUFBTSxDQUFDLElBQUksQ0FBQywyQkFBMkIsRUFBRSxPQUFPLENBQUMsS0FBSyxDQUFDLENBQUM7S0FDekQ7SUFDRCxNQUFNLGtCQUFrQixDQUFDLGNBQWMsQ0FBQywyQkFBMkIsQ0FBQyxDQUFDO0FBQ3ZFLENBQUMsQ0FBQyxDQUFDO0FBRUgsSUFBSSxDQUFDLE1BQU0sQ0FBQyxxQkFBcUIsRUFBRSxLQUFLLEVBQUMsQ0FBQyxFQUFDLEVBQUU7SUFDM0MsTUFBTSxpQkFBaUIsQ0FBQyxlQUFlLENBQ3JDLFdBQVcsRUFDWCwyQkFBMkIsQ0FBQyxRQUFRLEVBQUUsQ0FDdkMsQ0FBQztJQUNGLE1BQU0sV0FBVyxHQUFHLE1BQU0sa0JBQWtCLENBQUMsV0FBVyxDQUN0RCxXQUFXLEVBQ1gsU0FBUyxDQUNWLENBQUM7SUFDRixDQUFDLENBQUMsTUFBTSxDQUFDLFdBQVcsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLENBQUMsQ0FBQztBQUM5QyxDQUFDLENBQUMsQ0FBQztBQUVILElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxJQUFJLEVBQUU7SUFDcEIsTUFBTSxrQkFBa0IsQ0FBQyxjQUFjLENBQUMsMkJBQTJCLENBQUMsQ0FBQztBQUN2RSxDQUFDLENBQUMsQ0FBQyJ9
