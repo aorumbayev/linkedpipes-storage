@@ -27,7 +27,7 @@
     "doc": "run-s doc:html && open-cli build/docs/index.html",
     "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
     "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
-    // "doc:publish": "gh-pages -m \"🤖 Updates\" -d build/docs",
+    "doc:publish": "gh-pages -m \"🤖 Updates\" -d build/docs",
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && yarn install",
     "clean": "trash build test",
