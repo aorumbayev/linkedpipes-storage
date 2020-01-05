@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const ENVIRONMENT: string = process.env.ENVIRONMENT;
 const SOLID_PROVIDER_URL: string = process.env.SOLID_PROVIDER_URL;
 const SOLID_PASSWORD: string = process.env.SOLID_PASSWORD;

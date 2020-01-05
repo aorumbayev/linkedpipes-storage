@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import deepCopy from 'ts-deepcopy';
 import { rdflib } from './rdf-manager';
 import { ResourceConfig, SolidResourceType } from './storage-manager';
